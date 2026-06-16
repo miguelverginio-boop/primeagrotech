@@ -38,7 +38,6 @@
             --badge-text: #0A66C2;
             --shadow-color: rgba(0,0,0,0.08);
             --btn-shadow: rgba(30, 142, 62, 0.25);
-            --whatsapp-shadow: rgba(37, 211, 102, 0.25);
         }
 
         /* Tema Escuro */
@@ -58,7 +57,6 @@
             --badge-text: #cbd5e1;
             --shadow-color: rgba(0,0,0,0.5);
             --btn-shadow: rgba(30, 142, 62, 0.4);
-            --whatsapp-shadow: rgba(37, 211, 102, 0.3);
         }
 
         body {
@@ -117,24 +115,6 @@
         .btn-secondary:hover {
             background: var(--azul);
             color: #fff;
-            transform: translateY(-3px);
-        }
-        .btn-whatsapp {
-            background: #25D366;
-            color: #fff;
-            padding: 14px 32px;
-            border-radius: 60px;
-            font-weight: 600;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: 0.2s;
-            box-shadow: 0 6px 14px var(--whatsapp-shadow);
-            cursor: pointer;
-        }
-        .btn-whatsapp:hover {
-            background: #1da85c;
             transform: translateY(-3px);
         }
 
@@ -262,7 +242,7 @@
             justify-content: center;
             font-weight: 600;
             box-shadow: var(--sombra);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%23e6f0e6"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.15"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.2"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.2"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.15"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.3"/><circle cx="400" cy="160" r="16" fill="%23FFFFFF" opacity="0.7"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500"><rect width="800" height="500" fill="%234a7c59"/><rect y="420" width="800" height="80" fill="%235a8c69"/><rect y="440" width="800" height="60" fill="%236a9c79"/><rect x="0" y="460" width="800" height="40" fill="%234a7c59"/><circle cx="400" cy="200" r="140" fill="%233a6c49" opacity="0.3"/><circle cx="400" cy="200" r="100" fill="%232a5c39" opacity="0.2"/><circle cx="400" cy="200" r="60" fill="%231a4c29" opacity="0.15"/><rect x="370" y="100" width="60" height="15" rx="7" fill="%23333333" opacity="0.8"/><rect x="360" y="115" width="80" height="10" rx="5" fill="%23444444" opacity="0.6"/><circle cx="340" cy="180" r="12" fill="%23222222" opacity="0.5"/><circle cx="460" cy="180" r="12" fill="%23222222" opacity="0.5"/><circle cx="400" cy="160" r="8" fill="%23333333" opacity="0.7"/><line x1="340" y1="180" x2="320" y2="220" stroke="%23222222" stroke-width="4" opacity="0.3"/><line x1="460" y1="180" x2="480" y2="220" stroke="%23222222" stroke-width="4" opacity="0.3"/><circle cx="320" cy="220" r="6" fill="%235a7a6a" opacity="0.4"/><circle cx="480" cy="220" r="6" fill="%235a7a6a" opacity="0.4"/><text x="400" y="380" font-family="Arial" font-size="20" fill="%23ffffff" opacity="0.6" text-anchor="middle">🌾 Drone em operação</text></svg>');
             background-size: cover;
             background-position: center;
             transition: background-image 0.3s;
@@ -276,9 +256,10 @@
             color: var(--badge-text);
             box-shadow: var(--sombra);
             transition: background 0.3s, color 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
         }
         [data-theme="dark"] .hero-image {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%231a2a3a"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.2"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.25"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.3"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.25"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.4"/><circle cx="400" cy="160" r="16" fill="%23ffffff" opacity="0.5"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500"><rect width="800" height="500" fill="%232a4a3a"/><rect y="420" width="800" height="80" fill="%233a5a4a"/><rect y="440" width="800" height="60" fill="%234a6a5a"/><rect x="0" y="460" width="800" height="40" fill="%232a4a3a"/><circle cx="400" cy="200" r="140" fill="%233a6a4a" opacity="0.3"/><circle cx="400" cy="200" r="100" fill="%232a5a3a" opacity="0.2"/><circle cx="400" cy="200" r="60" fill="%231a4a2a" opacity="0.15"/><rect x="370" y="100" width="60" height="15" rx="7" fill="%23444444" opacity="0.8"/><rect x="360" y="115" width="80" height="10" rx="5" fill="%23555555" opacity="0.6"/><circle cx="340" cy="180" r="12" fill="%23333333" opacity="0.5"/><circle cx="460" cy="180" r="12" fill="%23333333" opacity="0.5"/><circle cx="400" cy="160" r="8" fill="%23444444" opacity="0.7"/><line x1="340" y1="180" x2="320" y2="220" stroke="%23333333" stroke-width="4" opacity="0.3"/><line x1="460" y1="180" x2="480" y2="220" stroke="%23333333" stroke-width="4" opacity="0.3"/><circle cx="320" cy="220" r="6" fill="%236a8a7a" opacity="0.4"/><circle cx="480" cy="220" r="6" fill="%236a8a7a" opacity="0.4"/><text x="400" y="380" font-family="Arial" font-size="20" fill="%23aaccbb" opacity="0.6" text-anchor="middle">🌾 Drone em operação</text></svg>');
         }
 
         /* ===== SEÇÕES ===== */
@@ -553,9 +534,6 @@
                     <a href="#contato" class="btn-primary" style="padding:10px 22px; font-size:0.9rem;">
                         <i class="fas fa-file-invoice"></i> Orçamento
                     </a>
-                    <a href="#" class="btn-whatsapp" style="padding:10px 22px; font-size:0.9rem;">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
                 </div>
             </nav>
         </div>
@@ -569,7 +547,6 @@
                 <p>Soluções inteligentes com drones para pulverização, monitoramento e agricultura de precisão.</p>
                 <div class="hero-buttons">
                     <a href="#contato" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar Orçamento</a>
-                    <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
                 </div>
                 <div class="hero-indicators">
                     <div class="item"><span class="number">+50</span><span class="label">Projetos Realizados</span></div>
@@ -579,7 +556,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <span class="badge"><i class="fas fa-drone"></i> Drone em operação</span>
+                <span class="badge"><i class="fas fa-drone"></i> Drone em operação na lavoura</span>
             </div>
         </div>
     </section>
@@ -704,7 +681,7 @@
                 </div>
                 <div>
                     <div class="info-contato">
-                        <p><i class="fab fa-whatsapp"></i> (43) 99999-9999</p>
+                        <p><i class="fas fa-phone"></i> (43) 99999-9999</p>
                         <p><i class="fas fa-envelope"></i> contato@primeagrotech.com.br</p>
                         <p><i class="fas fa-clock"></i> Segunda a Sexta, 08h – 18h</p>
                         <div class="map-placeholder">📍 Mapa integrado</div>
@@ -738,10 +715,8 @@
             const themeToggle = document.getElementById('themeToggle');
             const icon = themeToggle.querySelector('i');
             
-            // Verifica se há preferência salva
             let currentTheme = localStorage.getItem('theme');
             
-            // Se não houver preferência salva, verifica a preferência do sistema
             if (!currentTheme) {
                 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                     currentTheme = 'dark';
@@ -750,7 +725,6 @@
                 }
             }
             
-            // Aplica o tema inicial
             if (currentTheme === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'dark');
                 icon.className = 'fas fa-sun';
@@ -759,17 +733,14 @@
                 icon.className = 'fas fa-moon';
             }
             
-            // Alterna o tema ao clicar
             themeToggle.addEventListener('click', function() {
                 const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
                 
                 if (isDark) {
-                    // Mudar para claro
                     document.documentElement.removeAttribute('data-theme');
                     icon.className = 'fas fa-moon';
                     localStorage.setItem('theme', 'light');
                 } else {
-                    // Mudar para escuro
                     document.documentElement.setAttribute('data-theme', 'dark');
                     icon.className = 'fas fa-sun';
                     localStorage.setItem('theme', 'dark');
