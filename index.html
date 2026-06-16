@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PrimeAgroTech | Drones Agrícolas e Agricultura de Precisão</title>
   <meta name="description" content="A PrimeAgroTech oferece soluções inteligentes com drones agrícolas para pulverização, monitoramento e agricultura de precisão. Tecnologia que aumenta a produtividade no campo.">
-  <!-- Google Fonts para tipografia moderna -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- Font Awesome para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ===== RESET & VARIÁVEIS ===== */
     * {
       margin: 0;
       padding: 0;
@@ -25,15 +22,36 @@
       --cinza-claro: #F5F7FA;
       --cinza-escuro: #1e2a3a;
       --texto: #1e293b;
-      --sombra: 0 20px 35px -8px rgba(0,0,0,0.1);
+      --bg: #ffffff;
+      --card-bg: #f8fafc;
+      --sombra: 0 20px 35px -8px rgba(0,0,0,0.08);
       --radius: 20px;
+      --header-bg: rgba(255,255,255,0.85);
+      --border: #e9edf2;
+      --hero-bg: linear-gradient(145deg, #f0f7f0 0%, #ffffff 80%);
+      --footer-bg: #0b1f2e;
+      --footer-text: #b0c4d9;
+    }
+    [data-theme="dark"] {
+      --bg: #0f1724;
+      --texto: #e2e8f0;
+      --cinza-claro: #1e293b;
+      --card-bg: #1a2538;
+      --sombra: 0 20px 35px -8px rgba(0,0,0,0.5);
+      --header-bg: rgba(15, 23, 36, 0.9);
+      --border: #2d3a4f;
+      --hero-bg: linear-gradient(145deg, #0f1a2a 0%, #0b1422 80%);
+      --footer-bg: #080e18;
+      --footer-text: #8fa3bc;
+      --branco: #e2e8f0;
     }
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--branco);
+      background: var(--bg);
       color: var(--texto);
       line-height: 1.6;
       scroll-behavior: smooth;
+      transition: background 0.3s, color 0.2s;
     }
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
@@ -42,8 +60,6 @@
       margin: 0 auto;
       padding: 0 24px;
     }
-
-    /* ===== BOTÕES ===== */
     .btn-primary {
       background: var(--verde);
       color: #fff;
@@ -82,7 +98,6 @@
       background: var(--azul);
       color: #fff;
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(10, 102, 194, 0.15);
     }
     .btn-whatsapp {
       background: #25D366;
@@ -102,17 +117,16 @@
       background: #1da85c;
       transform: translateY(-3px);
     }
-
-    /* ===== HEADER ===== */
+    /* HEADER */
     header {
-      background: var(--branco);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+      background: var(--header-bg);
+      backdrop-filter: blur(8px);
       padding: 16px 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(8px);
-      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s, border-color 0.3s;
     }
     .header-content {
       display: flex;
@@ -126,9 +140,7 @@
       color: var(--verde);
       letter-spacing: -0.5px;
     }
-    .logo span {
-      color: var(--azul);
-    }
+    .logo span { color: var(--azul); }
     nav {
       display: flex;
       gap: 32px;
@@ -156,13 +168,21 @@
       color: var(--texto);
       cursor: pointer;
     }
-
-    /* ===== HERO ===== */
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: var(--texto);
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: 0.2s;
+    }
+    .theme-toggle:hover { color: var(--verde); }
+    /* HERO */
     .hero {
       padding: 60px 0 80px;
-      background: linear-gradient(145deg, #f0f7f0 0%, var(--branco) 80%);
-      position: relative;
-      overflow: hidden;
+      background: var(--hero-bg);
+      transition: background 0.3s;
     }
     .hero-grid {
       display: grid;
@@ -175,15 +195,14 @@
       font-weight: 800;
       line-height: 1.15;
       letter-spacing: -1px;
-      color: #0b1f2e;
+      color: var(--texto);
       margin-bottom: 20px;
     }
-    .hero-text h1 i {
-      color: var(--verde);
-    }
+    .hero-text h1 i { color: var(--verde); }
     .hero-text p {
       font-size: 1.25rem;
-      color: #334155;
+      color: var(--texto);
+      opacity: 0.8;
       max-width: 90%;
       margin-bottom: 32px;
     }
@@ -197,12 +216,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 30px 50px;
-      border-top: 1px solid rgba(0,0,0,0.05);
+      border-top: 1px solid var(--border);
       padding-top: 32px;
-    }
-    .hero-indicators .item {
-      display: flex;
-      flex-direction: column;
     }
     .hero-indicators .number {
       font-size: 2rem;
@@ -211,7 +226,8 @@
     }
     .hero-indicators .label {
       font-size: 0.9rem;
-      color: #475569;
+      color: var(--texto);
+      opacity: 0.7;
       font-weight: 500;
     }
     .hero-image {
@@ -222,13 +238,11 @@
       align-items: center;
       justify-content: center;
       color: var(--verde);
-      font-size: 1.2rem;
       font-weight: 600;
       box-shadow: var(--sombra);
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%23e6f0e6"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.15"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.2"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.2"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.15"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.3"/><circle cx="400" cy="160" r="16" fill="%23FFFFFF" opacity="0.7"/></svg>');
       background-size: cover;
       background-position: center;
-      position: relative;
     }
     .hero-image .badge {
       background: rgba(255,255,255,0.85);
@@ -239,29 +253,33 @@
       color: var(--azul);
       box-shadow: var(--sombra);
     }
-
-    /* ===== SEÇÕES GERAIS ===== */
-    section {
-      padding: 80px 0;
+    [data-theme="dark"] .hero-image {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%231a2a3a"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.2"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.25"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.3"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.25"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.4"/><circle cx="400" cy="160" r="16" fill="%23ffffff" opacity="0.5"/></svg>');
     }
+    [data-theme="dark"] .hero-image .badge {
+      background: rgba(15,23,36,0.85);
+      color: #cbd5e1;
+    }
+    /* SEÇÕES */
+    section { padding: 80px 0; }
     .section-title {
       font-size: 2.6rem;
       font-weight: 700;
       letter-spacing: -0.5px;
       margin-bottom: 16px;
-      color: #0b1f2e;
+      color: var(--texto);
     }
     .section-title span { color: var(--verde); }
     .section-sub {
       font-size: 1.1rem;
-      color: #475569;
+      color: var(--texto);
+      opacity: 0.7;
       max-width: 700px;
       margin-bottom: 48px;
     }
     .text-center { text-align: center; }
     .mx-auto { margin-left: auto; margin-right: auto; }
-
-    /* ===== SOBRE ===== */
+    /* SOBRE */
     .sobre-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -269,10 +287,11 @@
       align-items: center;
     }
     .sobre-card {
-      background: var(--cinza-claro);
+      background: var(--card-bg);
       padding: 32px;
       border-radius: var(--radius);
       box-shadow: var(--sombra);
+      transition: background 0.3s;
     }
     .sobre-card h3 {
       color: var(--azul);
@@ -286,7 +305,7 @@
       margin-top: 20px;
     }
     .valores-grid li {
-      background: var(--branco);
+      background: var(--bg);
       padding: 12px 18px;
       border-radius: 40px;
       font-weight: 500;
@@ -294,44 +313,44 @@
       align-items: center;
       gap: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      border: 1px solid var(--border);
     }
     .valores-grid li i { color: var(--verde); }
-
-    /* ===== SERVIÇOS ===== */
+    /* SERVIÇOS */
     .servicos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
       gap: 30px;
     }
     .servico-card {
-      background: var(--branco);
+      background: var(--card-bg);
       border-radius: var(--radius);
       padding: 32px 24px;
       box-shadow: var(--sombra);
       transition: 0.25s;
-      border: 1px solid rgba(0,0,0,0.02);
+      border: 1px solid var(--border);
     }
-    .servico-card:hover { transform: translateY(-8px); box-shadow: 0 30px 40px -12px rgba(0,0,0,0.12); }
+    .servico-card:hover { transform: translateY(-8px); }
     .servico-card i {
       font-size: 2.6rem;
       color: var(--verde);
       margin-bottom: 18px;
     }
     .servico-card h4 { font-size: 1.4rem; margin-bottom: 8px; }
-    .servico-card p { color: #475569; }
-
-    /* ===== BENEFÍCIOS / DIFERENCIAIS ===== */
+    .servico-card p { opacity: 0.7; }
+    /* BENEFÍCIOS */
     .beneficios-grid, .diferenciais-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
       gap: 28px;
     }
     .beneficio-card, .diferencial-card {
-      background: var(--cinza-claro);
+      background: var(--card-bg);
       padding: 32px 20px;
       border-radius: var(--radius);
       text-align: center;
       transition: 0.2s;
+      border: 1px solid var(--border);
     }
     .beneficio-card i, .diferencial-card i {
       font-size: 2.8rem;
@@ -339,8 +358,6 @@
       margin-bottom: 16px;
     }
     .diferencial-card {
-      background: var(--branco);
-      box-shadow: var(--sombra);
       text-align: left;
       display: flex;
       gap: 16px;
@@ -348,15 +365,14 @@
       padding: 20px 24px;
     }
     .diferencial-card i { font-size: 1.8rem; margin-bottom: 0; color: var(--verde); }
-
-    /* ===== GALERIA ===== */
+    /* GALERIA */
     .galeria-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
       gap: 20px;
     }
     .galeria-item {
-      background: var(--cinza-claro);
+      background: var(--card-bg);
       border-radius: var(--radius);
       height: 180px;
       display: flex;
@@ -365,28 +381,12 @@
       font-weight: 600;
       color: var(--azul);
       box-shadow: var(--sombra);
-      background-image: linear-gradient(145deg, #e2eee2, #c8dec8);
+      border: 1px solid var(--border);
       transition: 0.2s;
+      background-image: linear-gradient(145deg, var(--card-bg), var(--bg));
     }
     .galeria-item:hover { transform: scale(1.02); }
-
-    /* ===== DEPOIMENTOS ===== */
-    .depo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 30px;
-    }
-    .depo-card {
-      background: var(--branco);
-      padding: 28px;
-      border-radius: var(--radius);
-      box-shadow: var(--sombra);
-      border-left: 6px solid var(--verde);
-    }
-    .depo-card p { font-style: italic; color: #1e293b; margin-bottom: 16px; }
-    .depo-card .autor { font-weight: 700; color: var(--azul); }
-
-    /* ===== CTA ===== */
+    /* CTA */
     .cta-section {
       background: linear-gradient(135deg, #0b2b1a, #1E8E3E);
       color: #fff;
@@ -400,8 +400,7 @@
     .cta-section .btn-primary:hover { background: #e8f5e9; }
     .cta-section .btn-secondary { border-color: #fff; color: #fff; }
     .cta-section .btn-secondary:hover { background: #fff; color: var(--verde); }
-
-    /* ===== CONTATO ===== */
+    /* CONTATO */
     .contato-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -413,7 +412,9 @@
       width: 100%;
       padding: 14px 18px;
       border-radius: 12px;
-      border: 1px solid #d1d9e6;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--texto);
       font-family: inherit;
       transition: 0.2s;
     }
@@ -424,12 +425,12 @@
     }
     .info-contato i { color: var(--verde); width: 28px; }
     .info-contato p { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-
-    /* ===== FOOTER ===== */
+    /* FOOTER */
     footer {
-      background: #0b1f2e;
-      color: #b0c4d9;
+      background: var(--footer-bg);
+      color: var(--footer-text);
       padding: 48px 0 24px;
+      transition: background 0.3s;
     }
     .footer-grid {
       display: grid;
@@ -446,8 +447,7 @@
       text-align: center;
       font-size: 0.9rem;
     }
-
-    /* ===== RESPONSIVO ===== */
+    /* RESPONSIVO */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; }
       .hero-text p { max-width: 100%; }
@@ -467,18 +467,19 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="container header-content">
       <div class="logo">Prime<span>Agro</span>Tech</div>
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fas fa-moon"></i></button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      </div>
       <nav id="navbar">
         <a href="#sobre">Sobre</a>
         <a href="#servicos">Serviços</a>
         <a href="#beneficios">Benefícios</a>
         <a href="#diferenciais">Diferenciais</a>
         <a href="#galeria">Galeria</a>
-        <a href="#depoimentos">Depoimentos</a>
         <a href="#contato">Contato</a>
         <div class="nav-cta">
           <a href="#contato" class="btn-primary" style="padding:10px 22px; font-size:0.9rem;"><i class="fas fa-file-invoice"></i> Orçamento</a>
@@ -517,7 +518,7 @@
       <div class="sobre-grid">
         <div>
           <h2 class="section-title">Sobre a <span>PrimeAgroTech</span></h2>
-          <p style="font-size:1.1rem; color:#334155; margin-bottom:24px;">A PrimeAgroTech nasceu com o propósito de levar inovação e eficiência ao agronegócio através da tecnologia de drones e soluções inteligentes para o campo.</p>
+          <p style="font-size:1.1rem; opacity:0.8; margin-bottom:24px;">A PrimeAgroTech nasceu com o propósito de levar inovação e eficiência ao agronegócio através da tecnologia de drones e soluções inteligentes para o campo.</p>
           <div class="sobre-card">
             <h3><i class="fas fa-bullseye" style="color:var(--verde);"></i> Missão</h3>
             <p>Transformar a gestão agrícola através de tecnologias que aumentam produtividade, reduzem custos e promovem sustentabilidade.</p>
@@ -526,7 +527,7 @@
           </div>
         </div>
         <div>
-          <div style="background:var(--cinza-claro); border-radius:var(--radius); padding:32px;">
+          <div style="background:var(--card-bg); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
             <h3 style="font-size:1.6rem; margin-bottom:20px;">Valores</h3>
             <ul class="valores-grid">
               <li><i class="fas fa-lightbulb"></i> Inovação</li>
@@ -542,7 +543,7 @@
   </section>
 
   <!-- SERVIÇOS -->
-  <section id="servicos" style="background:var(--cinza-claro);">
+  <section id="servicos" style="background:var(--cinza-claro); transition: background 0.3s;">
     <div class="container text-center">
       <h2 class="section-title">Nossos <span>Serviços</span></h2>
       <p class="section-sub mx-auto">Tecnologia de ponta para o campo, com precisão e eficiência.</p>
@@ -569,7 +570,7 @@
   </section>
 
   <!-- DIFERENCIAIS -->
-  <section id="diferenciais" style="background:var(--cinza-claro);">
+  <section id="diferenciais" style="background:var(--cinza-claro); transition: background 0.3s;">
     <div class="container">
       <h2 class="section-title text-center">Por que escolher a <span>PrimeAgroTech</span>?</h2>
       <div class="diferenciais-grid">
@@ -598,18 +599,6 @@
     </div>
   </section>
 
-  <!-- DEPOIMENTOS -->
-  <section id="depoimentos" style="background:var(--cinza-claro);">
-    <div class="container text-center">
-      <h2 class="section-title">O que dizem <span>nossos clientes</span></h2>
-      <div class="depo-grid">
-        <div class="depo-card"><p>"A tecnologia utilizada pela PrimeAgroTech trouxe mais eficiência para nossa operação."</p><div class="autor">— Carlos Mendes, Produtor Rural</div></div>
-        <div class="depo-card"><p>"Excelente atendimento e relatórios muito detalhados."</p><div class="autor">— Fernanda Oliveira, Gestora Agrícola</div></div>
-        <div class="depo-card"><p>"Soluções modernas que realmente agregam valor ao campo."</p><div class="autor">— Ricardo Santos, Cooperativa Agro</div></div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section>
     <div class="container">
@@ -625,7 +614,7 @@
   </section>
 
   <!-- CONTATO -->
-  <section id="contato">
+  <section id="contato" style="background:var(--cinza-claro); transition: background 0.3s;">
     <div class="container">
       <h2 class="section-title text-center">Entre em <span>Contato</span></h2>
       <div class="contato-grid">
@@ -640,11 +629,11 @@
           </form>
         </div>
         <div>
-          <div class="info-contato" style="background:var(--cinza-claro); padding:32px; border-radius:var(--radius);">
+          <div class="info-contato" style="background:var(--card-bg); padding:32px; border-radius:var(--radius); border:1px solid var(--border);">
             <p><i class="fab fa-whatsapp"></i> (43) 99999-9999</p>
             <p><i class="fas fa-envelope"></i> contato@primeagrotech.com.br</p>
             <p><i class="fas fa-clock"></i> Segunda a Sexta, 08h – 18h</p>
-            <div style="margin-top:24px; background:#d9e3f0; height:160px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#0A66C2; font-weight:600;">📍 Mapa integrado</div>
+            <div style="margin-top:24px; background:var(--bg); height:160px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--azul); font-weight:600; border:1px solid var(--border);">📍 Mapa integrado</div>
           </div>
         </div>
       </div>
@@ -664,11 +653,21 @@
     </div>
   </footer>
 
-  <!-- TOGGLE MENU -->
   <script>
+    // Toggle menu mobile
     document.getElementById('menuToggle').addEventListener('click', function() {
       document.getElementById('navbar').classList.toggle('open');
     });
-  </script>
-</body>
-</html>
+
+    // Tema escuro
+    const themeToggle = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+    themeToggle.addEventListener('click', function() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.set
