@@ -152,42 +152,6 @@
             transform: scale(0.96);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--azul);
-            padding: 14px 32px;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1rem;
-            border: 1.5px solid var(--azul);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-secondary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--azul);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-        .btn-secondary:hover::before {
-            left: 0;
-        }
-        .btn-secondary:hover {
-            color: #fff;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(10, 102, 194, 0.2);
-        }
-
         /* ===== HEADER ===== */
         header {
             background: var(--header-bg);
@@ -561,12 +525,12 @@
         .servico-card p { opacity: 0.7; }
 
         /* ===== BENEFÍCIOS ===== */
-        .beneficios-grid, .diferenciais-grid {
+        .beneficios-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
             gap: 28px;
         }
-        .beneficio-card, .diferencial-card {
+        .beneficio-card {
             background: var(--card-bg);
             padding: 32px 20px;
             border-radius: var(--radius);
@@ -577,7 +541,7 @@
             position: relative;
             overflow: hidden;
         }
-        .beneficio-card::after, .diferencial-card::after {
+        .beneficio-card::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -589,88 +553,71 @@
             transform-origin: center;
             transition: transform 0.4s ease;
         }
-        .beneficio-card:hover::after, .diferencial-card:hover::after {
+        .beneficio-card:hover::after {
             transform: scaleX(1);
         }
-        .beneficio-card:hover, .diferencial-card:hover {
+        .beneficio-card:hover {
             transform: translateY(-8px) scale(1.03);
             box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
         }
-        .beneficio-card i, .diferencial-card i {
+        .beneficio-card i {
             font-size: 2.8rem;
             color: var(--azul);
             margin-bottom: 16px;
             transition: all 0.4s ease;
             display: inline-block;
         }
-        .beneficio-card:hover i, .diferencial-card:hover i {
+        .beneficio-card:hover i {
             transform: scale(1.3) rotate(10deg);
             color: var(--verde);
         }
+
+        /* ===== DIFERENCIAIS ===== */
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
+            gap: 28px;
+        }
         .diferencial-card {
+            background: var(--card-bg);
+            padding: 20px 24px;
+            border-radius: var(--radius);
             text-align: left;
             display: flex;
             gap: 16px;
             align-items: center;
-            padding: 20px 24px;
-        }
-        .diferencial-card i {
-            font-size: 1.8rem;
-            margin-bottom: 0;
-            color: var(--verde);
-        }
-        .diferencial-card:hover i {
-            transform: scale(1.3) rotate(-10deg);
-        }
-
-        /* ===== GALERIA ===== */
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-            gap: 20px;
-        }
-        .galeria-item {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: var(--azul);
-            box-shadow: var(--sombra);
-            border: 1px solid var(--border);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
+            border: 1px solid var(--border);
+            cursor: default;
             position: relative;
             overflow: hidden;
         }
-        .galeria-item::before {
+        .diferencial-card::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(30,142,62,0.1), rgba(10,102,194,0.1));
-            opacity: 0;
-            transition: opacity 0.4s ease;
+            height: 3px;
+            background: linear-gradient(90deg, var(--verde), var(--azul));
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.4s ease;
         }
-        .galeria-item:hover::before {
-            opacity: 1;
+        .diferencial-card:hover::after {
+            transform: scaleX(1);
         }
-        .galeria-item:hover {
-            transform: scale(1.05) rotate(1deg);
-            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.2);
-            border-color: var(--verde);
+        .diferencial-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
         }
-        .galeria-item i {
-            transition: all 0.4s ease;
-            font-size: 1.2rem;
-        }
-        .galeria-item:hover i {
-            transform: scale(1.5) rotate(20deg);
+        .diferencial-card i {
+            font-size: 1.8rem;
             color: var(--verde);
+            transition: all 0.4s ease;
+        }
+        .diferencial-card:hover i {
+            transform: scale(1.3) rotate(-10deg);
         }
 
         /* ===== CTA ===== */
@@ -723,16 +670,6 @@
         .cta-section .btn-primary:hover {
             background: #e8f5e9;
             transform: translateY(-4px) scale(1.05);
-        }
-        .cta-section .btn-secondary {
-            border-color: #fff;
-            color: #fff;
-            position: relative;
-            z-index: 1;
-        }
-        .cta-section .btn-secondary:hover {
-            background: #fff;
-            color: var(--verde);
         }
 
         /* ===== CONTATO ===== */
@@ -924,7 +861,6 @@
                 <a href="#servicos">Serviços</a>
                 <a href="#beneficios">Benefícios</a>
                 <a href="#diferenciais">Diferenciais</a>
-                <a href="#galeria">Galeria</a>
                 <a href="#contato">Contato</a>
                 <div class="nav-cta">
                     <a href="#contato" class="btn-primary" style="padding:10px 22px; font-size:0.9rem;">
@@ -1024,20 +960,6 @@
         </div>
     </section>
 
-    <section id="galeria">
-        <div class="container text-center">
-            <h2 class="section-title">Galeria <span>Visual</span></h2>
-            <div class="galeria-grid">
-                <div class="galeria-item animate-on-scroll visible"><i class="fas fa-drone"></i> Drones</div>
-                <div class="galeria-item animate-on-scroll visible delay-1"><i class="fas fa-tractor"></i> Pulverização</div>
-                <div class="galeria-item animate-on-scroll visible delay-2"><i class="fas fa-map"></i> Mapeamento</div>
-                <div class="galeria-item animate-on-scroll visible delay-3"><i class="fas fa-satellite"></i> Imagens aéreas</div>
-                <div class="galeria-item animate-on-scroll visible delay-4"><i class="fas fa-play-circle"></i> Vídeos</div>
-                <div class="galeria-item animate-on-scroll visible delay-4"><i class="fas fa-chart-line"></i> Antes & Depois</div>
-            </div>
-        </div>
-    </section>
-
     <section>
         <div class="container">
             <div class="cta-section">
@@ -1045,7 +967,6 @@
                 <p>Solicite uma avaliação e descubra como a tecnologia pode transformar seus resultados.</p>
                 <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
                     <a href="#contato" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar Orçamento</a>
-                    <a href="#" class="btn-secondary"><i class="fas fa-user-tie"></i> Falar com Especialista</a>
                 </div>
             </div>
         </div>
