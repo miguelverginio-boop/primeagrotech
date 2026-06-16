@@ -10,14 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== RESET & VARIÁVEIS ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Tema Claro (padrão) */
         :root {
             --verde: #1E8E3E;
             --azul: #0A66C2;
@@ -40,7 +38,6 @@
             --btn-shadow: rgba(30, 142, 62, 0.25);
         }
 
-        /* Tema Escuro */
         [data-theme="dark"] {
             --texto: #e2e8f0;
             --bg: #0f1724;
@@ -77,7 +74,6 @@
             padding: 0 24px;
         }
 
-        /* ===== BOTÕES ===== */
         .btn-primary {
             background: var(--verde);
             color: #fff;
@@ -118,7 +114,6 @@
             transform: translateY(-3px);
         }
 
-        /* ===== HEADER ===== */
         header {
             background: var(--header-bg);
             backdrop-filter: blur(8px);
@@ -182,7 +177,6 @@
         }
         .theme-toggle:hover { color: var(--verde); }
 
-        /* ===== HERO ===== */
         .hero {
             padding: 60px 0 80px;
             background: var(--hero-bg);
@@ -242,7 +236,7 @@
             justify-content: center;
             font-weight: 600;
             box-shadow: var(--sombra);
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500"><rect width="800" height="500" fill="%234a7c59"/><rect y="420" width="800" height="80" fill="%235a8c69"/><rect y="440" width="800" height="60" fill="%236a9c79"/><rect x="0" y="460" width="800" height="40" fill="%234a7c59"/><circle cx="400" cy="200" r="140" fill="%233a6c49" opacity="0.3"/><circle cx="400" cy="200" r="100" fill="%232a5c39" opacity="0.2"/><circle cx="400" cy="200" r="60" fill="%231a4c29" opacity="0.15"/><rect x="370" y="100" width="60" height="15" rx="7" fill="%23333333" opacity="0.8"/><rect x="360" y="115" width="80" height="10" rx="5" fill="%23444444" opacity="0.6"/><circle cx="340" cy="180" r="12" fill="%23222222" opacity="0.5"/><circle cx="460" cy="180" r="12" fill="%23222222" opacity="0.5"/><circle cx="400" cy="160" r="8" fill="%23333333" opacity="0.7"/><line x1="340" y1="180" x2="320" y2="220" stroke="%23222222" stroke-width="4" opacity="0.3"/><line x1="460" y1="180" x2="480" y2="220" stroke="%23222222" stroke-width="4" opacity="0.3"/><circle cx="320" cy="220" r="6" fill="%235a7a6a" opacity="0.4"/><circle cx="480" cy="220" r="6" fill="%235a7a6a" opacity="0.4"/><text x="400" y="380" font-family="Arial" font-size="20" fill="%23ffffff" opacity="0.6" text-anchor="middle">🌾 Drone em operação</text></svg>');
+            background-image: url('https://images.pexels.com/photos/37288733/pexels-photo-37288733.jpeg');
             background-size: cover;
             background-position: center;
             transition: background-image 0.3s;
@@ -258,11 +252,7 @@
             transition: background 0.3s, color 0.3s;
             border: 2px solid rgba(255,255,255,0.3);
         }
-        [data-theme="dark"] .hero-image {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500"><rect width="800" height="500" fill="%232a4a3a"/><rect y="420" width="800" height="80" fill="%233a5a4a"/><rect y="440" width="800" height="60" fill="%234a6a5a"/><rect x="0" y="460" width="800" height="40" fill="%232a4a3a"/><circle cx="400" cy="200" r="140" fill="%233a6a4a" opacity="0.3"/><circle cx="400" cy="200" r="100" fill="%232a5a3a" opacity="0.2"/><circle cx="400" cy="200" r="60" fill="%231a4a2a" opacity="0.15"/><rect x="370" y="100" width="60" height="15" rx="7" fill="%23444444" opacity="0.8"/><rect x="360" y="115" width="80" height="10" rx="5" fill="%23555555" opacity="0.6"/><circle cx="340" cy="180" r="12" fill="%23333333" opacity="0.5"/><circle cx="460" cy="180" r="12" fill="%23333333" opacity="0.5"/><circle cx="400" cy="160" r="8" fill="%23444444" opacity="0.7"/><line x1="340" y1="180" x2="320" y2="220" stroke="%23333333" stroke-width="4" opacity="0.3"/><line x1="460" y1="180" x2="480" y2="220" stroke="%23333333" stroke-width="4" opacity="0.3"/><circle cx="320" cy="220" r="6" fill="%236a8a7a" opacity="0.4"/><circle cx="480" cy="220" r="6" fill="%236a8a7a" opacity="0.4"/><text x="400" y="380" font-family="Arial" font-size="20" fill="%23aaccbb" opacity="0.6" text-anchor="middle">🌾 Drone em operação</text></svg>');
-        }
 
-        /* ===== SEÇÕES ===== */
         section { padding: 80px 0; }
         .section-title {
             font-size: 2.6rem;
@@ -282,7 +272,6 @@
         .text-center { text-align: center; }
         .mx-auto { margin-left: auto; margin-right: auto; }
 
-        /* ===== SOBRE ===== */
         .sobre-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -321,7 +310,6 @@
         }
         .valores-grid li i { color: var(--verde); }
 
-        /* ===== SERVIÇOS ===== */
         .servicos-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
@@ -344,7 +332,6 @@
         .servico-card h4 { font-size: 1.4rem; margin-bottom: 8px; }
         .servico-card p { opacity: 0.7; }
 
-        /* ===== BENEFÍCIOS ===== */
         .beneficios-grid, .diferenciais-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
@@ -372,7 +359,6 @@
         }
         .diferencial-card i { font-size: 1.8rem; margin-bottom: 0; color: var(--verde); }
 
-        /* ===== GALERIA ===== */
         .galeria-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -393,7 +379,6 @@
         }
         .galeria-item:hover { transform: scale(1.02); }
 
-        /* ===== CTA ===== */
         .cta-section {
             background: linear-gradient(135deg, #0b2b1a, #1E8E3E);
             color: #fff;
@@ -408,7 +393,6 @@
         .cta-section .btn-secondary { border-color: #fff; color: #fff; }
         .cta-section .btn-secondary:hover { background: #fff; color: var(--verde); }
 
-        /* ===== CONTATO ===== */
         .contato-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -469,7 +453,6 @@
             transition: background 0.3s;
         }
 
-        /* ===== FOOTER ===== */
         footer {
             background: var(--footer-bg);
             color: var(--footer-text);
@@ -492,7 +475,6 @@
             font-size: 0.9rem;
         }
 
-        /* ===== RESPONSIVO ===== */
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; }
             .hero-text p { max-width: 100%; }
@@ -539,7 +521,6 @@
         </div>
     </header>
 
-    <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
@@ -561,7 +542,6 @@
         </div>
     </section>
 
-    <!-- ===== SOBRE ===== -->
     <section id="sobre">
         <div class="container">
             <div class="sobre-grid">
@@ -593,7 +573,6 @@
         </div>
     </section>
 
-    <!-- ===== SERVIÇOS ===== -->
     <section id="servicos" style="background:var(--cinza-claro); transition: background 0.3s;">
         <div class="container text-center">
             <h2 class="section-title">Nossos <span>Serviços</span></h2>
@@ -607,7 +586,6 @@
         </div>
     </section>
 
-    <!-- ===== BENEFÍCIOS ===== -->
     <section id="beneficios">
         <div class="container text-center">
             <h2 class="section-title">Benefícios <span>Inteligentes</span></h2>
@@ -620,7 +598,6 @@
         </div>
     </section>
 
-    <!-- ===== DIFERENCIAIS ===== -->
     <section id="diferenciais" style="background:var(--cinza-claro); transition: background 0.3s;">
         <div class="container">
             <h2 class="section-title text-center">Por que escolher a <span>PrimeAgroTech</span>?</h2>
@@ -635,7 +612,6 @@
         </div>
     </section>
 
-    <!-- ===== GALERIA ===== -->
     <section id="galeria">
         <div class="container text-center">
             <h2 class="section-title">Galeria <span>Visual</span></h2>
@@ -650,7 +626,6 @@
         </div>
     </section>
 
-    <!-- ===== CTA ===== -->
     <section>
         <div class="container">
             <div class="cta-section">
@@ -664,7 +639,6 @@
         </div>
     </section>
 
-    <!-- ===== CONTATO ===== -->
     <section id="contato" style="background:var(--cinza-claro); transition: background 0.3s;">
         <div class="container">
             <h2 class="section-title text-center">Entre em <span>Contato</span></h2>
@@ -691,7 +665,6 @@
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -705,12 +678,10 @@
     </footer>
 
     <script>
-        // ===== MENU MOBILE =====
         document.getElementById('menuToggle').addEventListener('click', function() {
             document.getElementById('navbar').classList.toggle('open');
         });
 
-        // ===== TEMA ESCURO =====
         (function() {
             const themeToggle = document.getElementById('themeToggle');
             const icon = themeToggle.querySelector('i');
