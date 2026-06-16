@@ -1,715 +1,781 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PrimeAgroTech | Drones Agrícolas e Agricultura de Precisão</title>
-  <meta name="description" content="A PrimeAgroTech oferece soluções inteligentes com drones agrícolas para pulverização, monitoramento e agricultura de precisão. Tecnologia que aumenta a produtividade no campo.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    /* Tema Claro (padrão) */
-    :root {
-      --verde: #1E8E3E;
-      --azul: #0A66C2;
-      --branco: #FFFFFF;
-      --cinza-claro: #F5F7FA;
-      --texto: #1e293b;
-      --bg: #ffffff;
-      --card-bg: #f8fafc;
-      --sombra: 0 20px 35px -8px rgba(0,0,0,0.08);
-      --radius: 20px;
-      --header-bg: rgba(255,255,255,0.85);
-      --border: #e9edf2;
-      --hero-bg: linear-gradient(145deg, #f0f7f0 0%, #ffffff 80%);
-      --footer-bg: #0b1f2e;
-      --footer-text: #b0c4d9;
-      --input-bg: #ffffff;
-      --badge-bg: rgba(255,255,255,0.85);
-      --badge-text: #0A66C2;
-    }
-    
-    /* Tema Escuro */
-    [data-theme="dark"] {
-      --texto: #e2e8f0;
-      --bg: #0f1724;
-      --cinza-claro: #1a2538;
-      --card-bg: #1e2a3f;
-      --sombra: 0 20px 35px -8px rgba(0,0,0,0.5);
-      --header-bg: rgba(15, 23, 36, 0.95);
-      --border: #2d3a4f;
-      --hero-bg: linear-gradient(145deg, #0f1a2a 0%, #0b1422 80%);
-      --footer-bg: #080e18;
-      --footer-text: #8fa3bc;
-      --input-bg: #1a2538;
-      --badge-bg: rgba(15, 23, 36, 0.85);
-      --badge-text: #cbd5e1;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeAgroTech | Drones Agrícolas e Agricultura de Precisão</title>
+    <meta name="description" content="A PrimeAgroTech oferece soluções inteligentes com drones agrícolas para pulverização, monitoramento e agricultura de precisão. Tecnologia que aumenta a produtividade no campo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== RESET & VARIÁVEIS ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--texto);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    
-    .btn-primary {
-      background: var(--verde);
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.2s;
-      box-shadow: 0 6px 14px rgba(30, 142, 62, 0.25);
-      cursor: pointer;
-    }
-    .btn-primary:hover {
-      background: #157a32;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px rgba(30, 142, 62, 0.3);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--azul);
-      padding: 14px 32px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      border: 1.5px solid var(--azul);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-    .btn-secondary:hover {
-      background: var(--azul);
-      color: #fff;
-      transform: translateY(-3px);
-    }
-    .btn-whatsapp {
-      background: #25D366;
-      color: #fff;
-      padding: 14px 32px;
-      border-radius: 60px;
-      font-weight: 600;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: 0.2s;
-      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.25);
-      cursor: pointer;
-    }
-    .btn-whatsapp:hover {
-      background: #1da85c;
-      transform: translateY(-3px);
-    }
-    
-    /* HEADER */
-    header {
-      background: var(--header-bg);
-      backdrop-filter: blur(8px);
-      padding: 16px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--verde);
-      letter-spacing: -0.5px;
-    }
-    .logo span { color: var(--azul); }
-    nav {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    nav a {
-      font-weight: 500;
-      color: var(--texto);
-      transition: 0.2s;
-      font-size: 0.95rem;
-    }
-    nav a:hover { color: var(--verde); }
-    .nav-cta {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-    .nav-cta .btn-primary { padding: 10px 24px; font-size: 0.9rem; }
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      color: var(--texto);
-      cursor: pointer;
-    }
-    .theme-toggle {
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      color: var(--texto);
-      cursor: pointer;
-      padding: 4px 8px;
-      transition: 0.2s;
-    }
-    .theme-toggle:hover { color: var(--verde); }
-    
-    /* HERO */
-    .hero {
-      padding: 60px 0 80px;
-      background: var(--hero-bg);
-      transition: background 0.3s;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-    .hero-text h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      color: var(--texto);
-      margin-bottom: 20px;
-    }
-    .hero-text h1 i { color: var(--verde); }
-    .hero-text p {
-      font-size: 1.25rem;
-      color: var(--texto);
-      opacity: 0.8;
-      max-width: 90%;
-      margin-bottom: 32px;
-    }
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-    .hero-indicators {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px 50px;
-      border-top: 1px solid var(--border);
-      padding-top: 32px;
-    }
-    .hero-indicators .number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--azul);
-    }
-    .hero-indicators .label {
-      font-size: 0.9rem;
-      color: var(--texto);
-      opacity: 0.7;
-      font-weight: 500;
-    }
-    .hero-image {
-      background: linear-gradient(135deg, #d4e7d4, #b8d9b8);
-      border-radius: var(--radius);
-      height: 380px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--verde);
-      font-weight: 600;
-      box-shadow: var(--sombra);
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%23e6f0e6"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.15"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.2"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.2"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.15"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.3"/><circle cx="400" cy="160" r="16" fill="%23FFFFFF" opacity="0.7"/></svg>');
-      background-size: cover;
-      background-position: center;
-      transition: background-image 0.3s;
-    }
-    .hero-image .badge {
-      background: var(--badge-bg);
-      backdrop-filter: blur(4px);
-      padding: 16px 28px;
-      border-radius: 60px;
-      font-weight: 600;
-      color: var(--badge-text);
-      box-shadow: var(--sombra);
-      transition: background 0.3s, color 0.3s;
-    }
-    [data-theme="dark"] .hero-image {
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%231a2a3a"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.2"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.25"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.3"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.25"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.4"/><circle cx="400" cy="160" r="16" fill="%23ffffff" opacity="0.5"/></svg>');
-    }
-    
-    /* SEÇÕES */
-    section { padding: 80px 0; }
-    .section-title {
-      font-size: 2.6rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 16px;
-      color: var(--texto);
-    }
-    .section-title span { color: var(--verde); }
-    .section-sub {
-      font-size: 1.1rem;
-      color: var(--texto);
-      opacity: 0.7;
-      max-width: 700px;
-      margin-bottom: 48px;
-    }
-    .text-center { text-align: center; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    
-    /* SOBRE */
-    .sobre-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-    .sobre-card {
-      background: var(--card-bg);
-      padding: 32px;
-      border-radius: var(--radius);
-      box-shadow: var(--sombra);
-      transition: background 0.3s;
-    }
-    .sobre-card h3 {
-      color: var(--azul);
-      margin-top: 24px;
-      font-size: 1.3rem;
-    }
-    .valores-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 16px;
-      margin-top: 20px;
-    }
-    .valores-grid li {
-      background: var(--bg);
-      padding: 12px 18px;
-      border-radius: 40px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-      border: 1px solid var(--border);
-      transition: background 0.3s, border-color 0.3s;
-    }
-    .valores-grid li i { color: var(--verde); }
-    
-    /* SERVIÇOS */
-    .servicos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 30px;
-    }
-    .servico-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 32px 24px;
-      box-shadow: var(--sombra);
-      transition: 0.25s;
-      border: 1px solid var(--border);
-    }
-    .servico-card:hover { transform: translateY(-8px); }
-    .servico-card i {
-      font-size: 2.6rem;
-      color: var(--verde);
-      margin-bottom: 18px;
-    }
-    .servico-card h4 { font-size: 1.4rem; margin-bottom: 8px; }
-    .servico-card p { opacity: 0.7; }
-    
-    /* BENEFÍCIOS */
-    .beneficios-grid, .diferenciais-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
-      gap: 28px;
-    }
-    .beneficio-card, .diferencial-card {
-      background: var(--card-bg);
-      padding: 32px 20px;
-      border-radius: var(--radius);
-      text-align: center;
-      transition: 0.2s;
-      border: 1px solid var(--border);
-    }
-    .beneficio-card i, .diferencial-card i {
-      font-size: 2.8rem;
-      color: var(--azul);
-      margin-bottom: 16px;
-    }
-    .diferencial-card {
-      text-align: left;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      padding: 20px 24px;
-    }
-    .diferencial-card i { font-size: 1.8rem; margin-bottom: 0; color: var(--verde); }
-    
-    /* GALERIA */
-    .galeria-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      gap: 20px;
-    }
-    .galeria-item {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      color: var(--azul);
-      box-shadow: var(--sombra);
-      border: 1px solid var(--border);
-      transition: 0.2s, background 0.3s;
-    }
-    .galeria-item:hover { transform: scale(1.02); }
-    
-    /* CTA */
-    .cta-section {
-      background: linear-gradient(135deg, #0b2b1a, #1E8E3E);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 60px 40px;
-      text-align: center;
-    }
-    .cta-section h2 { font-size: 2.6rem; font-weight: 700; }
-    .cta-section p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 16px auto 32px; }
-    .cta-section .btn-primary { background: #fff; color: var(--verde); box-shadow: none; }
-    .cta-section .btn-primary:hover { background: #e8f5e9; }
-    .cta-section .btn-secondary { border-color: #fff; color: #fff; }
-    .cta-section .btn-secondary:hover { background: #fff; color: var(--verde); }
-    
-    /* CONTATO */
-    .contato-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-    .form-group { margin-bottom: 20px; }
-    .form-group label { 
-      font-weight: 600; 
-      display: block; 
-      margin-bottom: 6px;
-      color: var(--texto);
-    }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      padding: 14px 18px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--input-bg);
-      color: var(--texto);
-      font-family: inherit;
-      transition: 0.2s, background 0.3s, border-color 0.3s;
-    }
-    .form-group input::placeholder, .form-group textarea::placeholder {
-      color: var(--texto);
-      opacity: 0.5;
-    }
-    .form-group input:focus, .form-group textarea:focus {
-      outline: none;
-      border-color: var(--verde);
-      box-shadow: 0 0 0 3px rgba(30,142,62,0.15);
-    }
-    .info-contato i { color: var(--verde); width: 28px; }
-    .info-contato p { 
-      margin-bottom: 12px; 
-      display: flex; 
-      align-items: center; 
-      gap: 8px;
-      color: var(--texto);
-    }
-    .info-contato {
-      background: var(--card-bg);
-      padding: 32px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      transition: background 0.3s;
-    }
-    .map-placeholder {
-      margin-top: 24px;
-      background: var(--bg);
-      height: 160px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--azul);
-      font-weight: 600;
-      border: 1px solid var(--border);
-      transition: background 0.3s;
-    }
-    
-    /* FOOTER */
-    footer {
-      background: var(--footer-bg);
-      color: var(--footer-text);
-      padding: 48px 0 24px;
-      transition: background 0.3s;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .footer-grid h4 { color: #fff; margin-bottom: 18px; }
-    .footer-grid a { display: block; margin-bottom: 8px; transition: 0.2s; }
-    .footer-grid a:hover { color: #fff; }
-    .footer-bottom {
-      border-top: 1px solid #1e3347;
-      padding-top: 24px;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    
-    /* RESPONSIVO */
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-text p { max-width: 100%; }
-      .sobre-grid { grid-template-columns: 1fr; }
-      .contato-grid { grid-template-columns: 1fr; }
-      .hero-indicators { gap: 20px; }
-      .section-title { font-size: 2rem; }
-    }
-    @media (max-width: 720px) {
-      nav { display: none; width: 100%; flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px 0; }
-      nav.open { display: flex; }
-      .menu-toggle { display: block; }
-      .nav-cta { flex-wrap: wrap; }
-      .hero-text h1 { font-size: 2.2rem; }
-      .hero-indicators .number { font-size: 1.6rem; }
-    }
-  </style>
+        /* Tema Claro (padrão) */
+        :root {
+            --verde: #1E8E3E;
+            --azul: #0A66C2;
+            --branco: #FFFFFF;
+            --cinza-claro: #F5F7FA;
+            --texto: #1e293b;
+            --bg: #ffffff;
+            --card-bg: #f8fafc;
+            --sombra: 0 20px 35px -8px rgba(0,0,0,0.08);
+            --radius: 20px;
+            --header-bg: rgba(255,255,255,0.85);
+            --border: #e9edf2;
+            --hero-bg: linear-gradient(145deg, #f0f7f0 0%, #ffffff 80%);
+            --footer-bg: #0b1f2e;
+            --footer-text: #b0c4d9;
+            --input-bg: #ffffff;
+            --badge-bg: rgba(255,255,255,0.85);
+            --badge-text: #0A66C2;
+            --shadow-color: rgba(0,0,0,0.08);
+            --btn-shadow: rgba(30, 142, 62, 0.25);
+            --whatsapp-shadow: rgba(37, 211, 102, 0.25);
+        }
+
+        /* Tema Escuro */
+        [data-theme="dark"] {
+            --texto: #e2e8f0;
+            --bg: #0f1724;
+            --cinza-claro: #1a2538;
+            --card-bg: #1e2a3f;
+            --sombra: 0 20px 35px -8px rgba(0,0,0,0.5);
+            --header-bg: rgba(15, 23, 36, 0.95);
+            --border: #2d3a4f;
+            --hero-bg: linear-gradient(145deg, #0f1a2a 0%, #0b1422 80%);
+            --footer-bg: #080e18;
+            --footer-text: #8fa3bc;
+            --input-bg: #1a2538;
+            --badge-bg: rgba(15, 23, 36, 0.85);
+            --badge-text: #cbd5e1;
+            --shadow-color: rgba(0,0,0,0.5);
+            --btn-shadow: rgba(30, 142, 62, 0.4);
+            --whatsapp-shadow: rgba(37, 211, 102, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--texto);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== BOTÕES ===== */
+        .btn-primary {
+            background: var(--verde);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+            box-shadow: 0 6px 14px var(--btn-shadow);
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: #157a32;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px var(--btn-shadow);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--azul);
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1.5px solid var(--azul);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .btn-secondary:hover {
+            background: var(--azul);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .btn-whatsapp {
+            background: #25D366;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 60px;
+            font-weight: 600;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+            box-shadow: 0 6px 14px var(--whatsapp-shadow);
+            cursor: pointer;
+        }
+        .btn-whatsapp:hover {
+            background: #1da85c;
+            transform: translateY(-3px);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--header-bg);
+            backdrop-filter: blur(8px);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--verde);
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--azul); }
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            font-weight: 500;
+            color: var(--texto);
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        nav a:hover { color: var(--verde); }
+        .nav-cta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .nav-cta .btn-primary { padding: 10px 24px; font-size: 0.9rem; }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: var(--texto);
+            cursor: pointer;
+        }
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--texto);
+            cursor: pointer;
+            padding: 4px 8px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        .theme-toggle:hover { color: var(--verde); }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 60px 0 80px;
+            background: var(--hero-bg);
+            transition: background 0.3s;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            color: var(--texto);
+            margin-bottom: 20px;
+        }
+        .hero-text h1 i { color: var(--verde); }
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--texto);
+            opacity: 0.8;
+            max-width: 90%;
+            margin-bottom: 32px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        .hero-indicators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px 50px;
+            border-top: 1px solid var(--border);
+            padding-top: 32px;
+        }
+        .hero-indicators .number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--azul);
+        }
+        .hero-indicators .label {
+            font-size: 0.9rem;
+            color: var(--texto);
+            opacity: 0.7;
+            font-weight: 500;
+        }
+        .hero-image {
+            border-radius: var(--radius);
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            box-shadow: var(--sombra);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%23e6f0e6"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.15"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.2"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.2"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.15"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.3"/><circle cx="400" cy="160" r="16" fill="%23FFFFFF" opacity="0.7"/></svg>');
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.3s;
+        }
+        .hero-image .badge {
+            background: var(--badge-bg);
+            backdrop-filter: blur(4px);
+            padding: 16px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            color: var(--badge-text);
+            box-shadow: var(--sombra);
+            transition: background 0.3s, color 0.3s;
+        }
+        [data-theme="dark"] .hero-image {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%231a2a3a"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.2"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.25"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.3"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.25"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.4"/><circle cx="400" cy="160" r="16" fill="%23ffffff" opacity="0.5"/></svg>');
+        }
+
+        /* ===== SEÇÕES ===== */
+        section { padding: 80px 0; }
+        .section-title {
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            color: var(--texto);
+        }
+        .section-title span { color: var(--verde); }
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--texto);
+            opacity: 0.7;
+            max-width: 700px;
+            margin-bottom: 48px;
+        }
+        .text-center { text-align: center; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+
+        /* ===== SOBRE ===== */
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .sobre-card {
+            background: var(--card-bg);
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--sombra);
+            transition: background 0.3s;
+        }
+        .sobre-card h3 {
+            color: var(--azul);
+            margin-top: 24px;
+            font-size: 1.3rem;
+        }
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .valores-grid li {
+            background: var(--bg);
+            padding: 12px 18px;
+            border-radius: 40px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 6px var(--shadow-color);
+            border: 1px solid var(--border);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .valores-grid li i { color: var(--verde); }
+
+        /* ===== SERVIÇOS ===== */
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+            gap: 30px;
+        }
+        .servico-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            box-shadow: var(--sombra);
+            transition: 0.25s;
+            border: 1px solid var(--border);
+        }
+        .servico-card:hover { transform: translateY(-8px); }
+        .servico-card i {
+            font-size: 2.6rem;
+            color: var(--verde);
+            margin-bottom: 18px;
+        }
+        .servico-card h4 { font-size: 1.4rem; margin-bottom: 8px; }
+        .servico-card p { opacity: 0.7; }
+
+        /* ===== BENEFÍCIOS ===== */
+        .beneficios-grid, .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
+            gap: 28px;
+        }
+        .beneficio-card, .diferencial-card {
+            background: var(--card-bg);
+            padding: 32px 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: 0.2s;
+            border: 1px solid var(--border);
+        }
+        .beneficio-card i, .diferencial-card i {
+            font-size: 2.8rem;
+            color: var(--azul);
+            margin-bottom: 16px;
+        }
+        .diferencial-card {
+            text-align: left;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            padding: 20px 24px;
+        }
+        .diferencial-card i { font-size: 1.8rem; margin-bottom: 0; color: var(--verde); }
+
+        /* ===== GALERIA ===== */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+            gap: 20px;
+        }
+        .galeria-item {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--azul);
+            box-shadow: var(--sombra);
+            border: 1px solid var(--border);
+            transition: 0.2s, background 0.3s;
+        }
+        .galeria-item:hover { transform: scale(1.02); }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #0b2b1a, #1E8E3E);
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 60px 40px;
+            text-align: center;
+        }
+        .cta-section h2 { font-size: 2.6rem; font-weight: 700; }
+        .cta-section p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 16px auto 32px; }
+        .cta-section .btn-primary { background: #fff; color: var(--verde); box-shadow: none; }
+        .cta-section .btn-primary:hover { background: #e8f5e9; }
+        .cta-section .btn-secondary { border-color: #fff; color: #fff; }
+        .cta-section .btn-secondary:hover { background: #fff; color: var(--verde); }
+
+        /* ===== CONTATO ===== */
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            color: var(--texto);
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--input-bg);
+            color: var(--texto);
+            font-family: inherit;
+            transition: 0.2s, background 0.3s, border-color 0.3s;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: var(--texto);
+            opacity: 0.5;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--verde);
+            box-shadow: 0 0 0 3px rgba(30,142,62,0.15);
+        }
+        .info-contato i { color: var(--verde); width: 28px; }
+        .info-contato p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--texto);
+        }
+        .info-contato {
+            background: var(--card-bg);
+            padding: 32px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+        .map-placeholder {
+            margin-top: 24px;
+            background: var(--bg);
+            height: 160px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul);
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 48px 0 24px;
+            transition: background 0.3s;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-grid h4 { color: #fff; margin-bottom: 18px; }
+        .footer-grid a { display: block; margin-bottom: 8px; transition: 0.2s; }
+        .footer-grid a:hover { color: #fff; }
+        .footer-bottom {
+            border-top: 1px solid #1e3347;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-text p { max-width: 100%; }
+            .sobre-grid { grid-template-columns: 1fr; }
+            .contato-grid { grid-template-columns: 1fr; }
+            .hero-indicators { gap: 20px; }
+            .section-title { font-size: 2rem; }
+        }
+        @media (max-width: 720px) {
+            nav { display: none; width: 100%; flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px 0; }
+            nav.open { display: flex; }
+            .menu-toggle { display: block; }
+            .nav-cta { flex-wrap: wrap; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-indicators .number { font-size: 1.6rem; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container header-content">
-      <div class="logo">Prime<span>Agro</span>Tech</div>
-      <div style="display:flex; align-items:center; gap:12px;">
-        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-      <nav id="navbar">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#beneficios">Benefícios</a>
-        <a href="#diferenciais">Diferenciais</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#contato">Contato</a>
-        <div class="nav-cta">
-          <a href="#contato" class="btn-primary" style="padding:10px 22px; font-size:0.9rem;">
-            <i class="fas fa-file-invoice"></i> Orçamento
-          </a>
-          <a href="#" class="btn-whatsapp" style="padding:10px 22px; font-size:0.9rem;">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </a>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Prime<span>Agro</span>Tech</div>
+            <div style="display:flex; align-items:center; gap:12px;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav id="navbar">
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#contato">Contato</a>
+                <div class="nav-cta">
+                    <a href="#contato" class="btn-primary" style="padding:10px 22px; font-size:0.9rem;">
+                        <i class="fas fa-file-invoice"></i> Orçamento
+                    </a>
+                    <a href="#" class="btn-whatsapp" style="padding:10px 22px; font-size:0.9rem;">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </nav>
         </div>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <h1>Tecnologia que eleva <i>sua produtividade</i> no campo</h1>
-        <p>Soluções inteligentes com drones para pulverização, monitoramento e agricultura de precisão.</p>
-        <div class="hero-buttons">
-          <a href="#contato" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar Orçamento</a>
-          <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Tecnologia que eleva <i>sua produtividade</i> no campo</h1>
+                <p>Soluções inteligentes com drones para pulverização, monitoramento e agricultura de precisão.</p>
+                <div class="hero-buttons">
+                    <a href="#contato" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar Orçamento</a>
+                    <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+                </div>
+                <div class="hero-indicators">
+                    <div class="item"><span class="number">+50</span><span class="label">Projetos Realizados</span></div>
+                    <div class="item"><span class="number">+500</span><span class="label">Hectares Monitorados</span></div>
+                    <div class="item"><span class="number">98%</span><span class="label">Satisfação dos Clientes</span></div>
+                    <div class="item"><span class="number">🌎</span><span class="label">Diversas Regiões</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <span class="badge"><i class="fas fa-drone"></i> Drone em operação</span>
+            </div>
         </div>
-        <div class="hero-indicators">
-          <div class="item"><span class="number">+50</span><span class="label">Projetos Realizados</span></div>
-          <div class="item"><span class="number">+500</span><span class="label">Hectares Monitorados</span></div>
-          <div class="item"><span class="number">98%</span><span class="label">Satisfação dos Clientes</span></div>
-          <div class="item"><span class="number">🌎</span><span class="label">Diversas Regiões</span></div>
+    </section>
+
+    <!-- ===== SOBRE ===== -->
+    <section id="sobre">
+        <div class="container">
+            <div class="sobre-grid">
+                <div>
+                    <h2 class="section-title">Sobre a <span>PrimeAgroTech</span></h2>
+                    <p style="font-size:1.1rem; opacity:0.8; margin-bottom:24px;">
+                        A PrimeAgroTech nasceu com o propósito de levar inovação e eficiência ao agronegócio através da tecnologia de drones e soluções inteligentes para o campo.
+                    </p>
+                    <div class="sobre-card">
+                        <h3><i class="fas fa-bullseye" style="color:var(--verde);"></i> Missão</h3>
+                        <p>Transformar a gestão agrícola através de tecnologias que aumentam produtividade, reduzem custos e promovem sustentabilidade.</p>
+                        <h3><i class="fas fa-eye" style="color:var(--azul);"></i> Visão</h3>
+                        <p>Ser referência regional em soluções tecnológicas para o agronegócio.</p>
+                    </div>
+                </div>
+                <div>
+                    <div style="background:var(--card-bg); border-radius:var(--radius); padding:32px; border:1px solid var(--border); transition: background 0.3s;">
+                        <h3 style="font-size:1.6rem; margin-bottom:20px; color:var(--texto);">Valores</h3>
+                        <ul class="valores-grid">
+                            <li><i class="fas fa-lightbulb"></i> Inovação</li>
+                            <li><i class="fas fa-chart-line"></i> Compromisso com resultados</li>
+                            <li><i class="fas fa-leaf"></i> Sustentabilidade</li>
+                            <li><i class="fas fa-handshake"></i> Transparência</li>
+                            <li><i class="fas fa-star"></i> Excelência no atendimento</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="hero-image">
-        <span class="badge"><i class="fas fa-drone"></i> Drone em operação</span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SOBRE -->
-  <section id="sobre">
-    <div class="container">
-      <div class="sobre-grid">
-        <div>
-          <h2 class="section-title">Sobre a <span>PrimeAgroTech</span></h2>
-          <p style="font-size:1.1rem; opacity:0.8; margin-bottom:24px;">
-            A PrimeAgroTech nasceu com o propósito de levar inovação e eficiência ao agronegócio através da tecnologia de drones e soluções inteligentes para o campo.
-          </p>
-          <div class="sobre-card">
-            <h3><i class="fas fa-bullseye" style="color:var(--verde);"></i> Missão</h3>
-            <p>Transformar a gestão agrícola através de tecnologias que aumentam produtividade, reduzem custos e promovem sustentabilidade.</p>
-            <h3><i class="fas fa-eye" style="color:var(--azul);"></i> Visão</h3>
-            <p>Ser referência regional em soluções tecnológicas para o agronegócio.</p>
-          </div>
+    <!-- ===== SERVIÇOS ===== -->
+    <section id="servicos" style="background:var(--cinza-claro); transition: background 0.3s;">
+        <div class="container text-center">
+            <h2 class="section-title">Nossos <span>Serviços</span></h2>
+            <p class="section-sub mx-auto">Tecnologia de ponta para o campo, com precisão e eficiência.</p>
+            <div class="servicos-grid">
+                <div class="servico-card"><i class="fas fa-spray-can"></i><h4>Pulverização com Drones</h4><p>Aplicação precisa com redução de desperdícios.</p></div>
+                <div class="servico-card"><i class="fas fa-map-marked-alt"></i><h4>Mapeamento Aéreo</h4><p>Levantamento detalhado com imagens de alta resolução.</p></div>
+                <div class="servico-card"><i class="fas fa-seedling"></i><h4>Monitoramento de Lavouras</h4><p>Identificação precoce de falhas, pragas e doenças.</p></div>
+                <div class="servico-card"><i class="fas fa-chart-pie"></i><h4>Agricultura de Precisão</h4><p>Análises inteligentes para decisões estratégicas.</p></div>
+            </div>
         </div>
-        <div>
-          <div style="background:var(--card-bg); border-radius:var(--radius); padding:32px; border:1px solid var(--border); transition: background 0.3s;">
-            <h3 style="font-size:1.6rem; margin-bottom:20px; color:var(--texto);">Valores</h3>
-            <ul class="valores-grid">
-              <li><i class="fas fa-lightbulb"></i> Inovação</li>
-              <li><i class="fas fa-chart-line"></i> Compromisso com resultados</li>
-              <li><i class="fas fa-leaf"></i> Sustentabilidade</li>
-              <li><i class="fas fa-handshake"></i> Transparência</li>
-              <li><i class="fas fa-star"></i> Excelência no atendimento</li>
-            </ul>
-          </div>
+    </section>
+
+    <!-- ===== BENEFÍCIOS ===== -->
+    <section id="beneficios">
+        <div class="container text-center">
+            <h2 class="section-title">Benefícios <span>Inteligentes</span></h2>
+            <div class="beneficios-grid">
+                <div class="beneficio-card"><i class="fas fa-coins"></i><h4>Redução de Custos</h4><p>Menor desperdício e maior eficiência.</p></div>
+                <div class="beneficio-card"><i class="fas fa-rocket"></i><h4>Maior Produtividade</h4><p>Melhor aproveitamento das áreas.</p></div>
+                <div class="beneficio-card"><i class="fas fa-recycle"></i><h4>Sustentabilidade</h4><p>Aplicações controladas e menor impacto.</p></div>
+                <div class="beneficio-card"><i class="fas fa-microchip"></i><h4>Precisão Tecnológica</h4><p>Dados confiáveis para decisões.</p></div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SERVIÇOS -->
-  <section id="servicos" style="background:var(--cinza-claro); transition: background 0.3s;">
-    <div class="container text-center">
-      <h2 class="section-title">Nossos <span>Serviços</span></h2>
-      <p class="section-sub mx-auto">Tecnologia de ponta para o campo, com precisão e eficiência.</p>
-      <div class="servicos-grid">
-        <div class="servico-card"><i class="fas fa-spray-can"></i><h4>Pulverização com Drones</h4><p>Aplicação precisa com redução de desperdícios.</p></div>
-        <div class="servico-card"><i class="fas fa-map-marked-alt"></i><h4>Mapeamento Aéreo</h4><p>Levantamento detalhado com imagens de alta resolução.</p></div>
-        <div class="servico-card"><i class="fas fa-seedling"></i><h4>Monitoramento de Lavouras</h4><p>Identificação precoce de falhas, pragas e doenças.</p></div>
-        <div class="servico-card"><i class="fas fa-chart-pie"></i><h4>Agricultura de Precisão</h4><p>Análises inteligentes para decisões estratégicas.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BENEFÍCIOS -->
-  <section id="beneficios">
-    <div class="container text-center">
-      <h2 class="section-title">Benefícios <span>Inteligentes</span></h2>
-      <div class="beneficios-grid">
-        <div class="beneficio-card"><i class="fas fa-coins"></i><h4>Redução de Custos</h4><p>Menor desperdício e maior eficiência.</p></div>
-        <div class="beneficio-card"><i class="fas fa-rocket"></i><h4>Maior Produtividade</h4><p>Melhor aproveitamento das áreas.</p></div>
-        <div class="beneficio-card"><i class="fas fa-recycle"></i><h4>Sustentabilidade</h4><p>Aplicações controladas e menor impacto.</p></div>
-        <div class="beneficio-card"><i class="fas fa-microchip"></i><h4>Precisão Tecnológica</h4><p>Dados confiáveis para decisões.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIFERENCIAIS -->
-  <section id="diferenciais" style="background:var(--cinza-claro); transition: background 0.3s;">
-    <div class="container">
-      <h2 class="section-title text-center">Por que escolher a <span>PrimeAgroTech</span>?</h2>
-      <div class="diferenciais-grid">
-        <div class="diferencial-card"><i class="fas fa-drone"></i> Equipamentos modernos</div>
-        <div class="diferencial-card"><i class="fas fa-users-cog"></i> Equipe especializada</div>
-        <div class="diferencial-card"><i class="fas fa-headset"></i> Atendimento personalizado</div>
-        <div class="diferencial-card"><i class="fas fa-file-alt"></i> Relatórios detalhados</div>
-        <div class="diferencial-card"><i class="fas fa-draw-polygon"></i> Planejamento estratégico</div>
-        <div class="diferencial-card"><i class="fas fa-chart-simple"></i> Tecnologia aplicada aos resultados</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERIA -->
-  <section id="galeria">
-    <div class="container text-center">
-      <h2 class="section-title">Galeria <span>Visual</span></h2>
-      <div class="galeria-grid">
-        <div class="galeria-item"><i class="fas fa-drone"></i> Drones</div>
-        <div class="galeria-item"><i class="fas fa-tractor"></i> Pulverização</div>
-        <div class="galeria-item"><i class="fas fa-map"></i> Mapeamento</div>
-        <div class="galeria-item"><i class="fas fa-satellite"></i> Imagens aéreas</div>
-        <div class="galeria-item"><i class="fas fa-play-circle"></i> Vídeos</div>
-        <div class="galeria-item"><i class="fas fa-chart-line"></i> Antes & Depois</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section>
-    <div class="container">
-      <div class="cta-section">
-        <h2>Pronto para levar sua produção para o próximo nível?</h2>
-        <p>Solicite uma avaliação e descubra como a tecnologia pode transformar seus resultados.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
-          <a href="#contato" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar Orçamento</a>
-          <a href="#" class="btn-secondary"><i class="fas fa-user-tie"></i> Falar com Especialista</a>
+    <!-- ===== DIFERENCIAIS ===== -->
+    <section id="diferenciais" style="background:var(--cinza-claro); transition: background 0.3s;">
+        <div class="container">
+            <h2 class="section-title text-center">Por que escolher a <span>PrimeAgroTech</span>?</h2>
+            <div class="diferenciais-grid">
+                <div class="diferencial-card"><i class="fas fa-drone"></i> Equipamentos modernos</div>
+                <div class="diferencial-card"><i class="fas fa-users-cog"></i> Equipe especializada</div>
+                <div class="diferencial-card"><i class="fas fa-headset"></i> Atendimento personalizado</div>
+                <div class="diferencial-card"><i class="fas fa-file-alt"></i> Relatórios detalhados</div>
+                <div class="diferencial-card"><i class="fas fa-draw-polygon"></i> Planejamento estratégico</div>
+                <div class="diferencial-card"><i class="fas fa-chart-simple"></i> Tecnologia aplicada aos resultados</div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTATO -->
-  <section id="contato" style="background:var(--cinza-claro); transition: background 0.3s;">
-    <div class="container">
-      <h2 class="section-title text-center">Entre em <span>Contato</span></h2>
-      <div class="contato-grid">
-        <div>
-          <form>
-            <div class="form-group"><label>Nome</label><input type="text" placeholder="Seu nome" required></div>
-            <div class="form-group"><label>Telefone</label><input type="tel" placeholder="(00) 00000-0000" required></div>
-            <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com" required></div>
-            <div class="form-group"><label>Cidade</label><input type="text" placeholder="Sua cidade"></div>
-            <div class="form-group"><label>Mensagem</label><textarea rows="4" placeholder="Como podemos ajudar?"></textarea></div>
-            <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Enviar</button>
-          </form>
+    <!-- ===== GALERIA ===== -->
+    <section id="galeria">
+        <div class="container text-center">
+            <h2 class="section-title">Galeria <span>Visual</span></h2>
+            <div class="galeria-grid">
+                <div class="galeria-item"><i class="fas fa-drone"></i> Drones</div>
+                <div class="galeria-item"><i class="fas fa-tractor"></i> Pulverização</div>
+                <div class="galeria-item"><i class="fas fa-map"></i> Mapeamento</div>
+                <div class="galeria-item"><i class="fas fa-satellite"></i> Imagens aéreas</div>
+                <div class="galeria-item"><i class="fas fa-play-circle"></i> Vídeos</div>
+                <div class="galeria-item"><i class="fas fa-chart-line"></i> Antes & Depois</div>
+            </div>
         </div>
-        <div>
-          <div class="info-contato">
-            <p><i class="fab fa-whatsapp"></i> (43) 99999-9999</p>
-            <p><i class="fas fa-envelope"></i> contato@primeagrotech.com.br</p>
-            <p><i class="fas fa-clock"></i> Segunda a Sexta, 08h – 18h</p>
-            <div class="map-placeholder">📍 Mapa integrado</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div><h4>PrimeAgroTech</h4><p style="margin-top:8px;">Tecnologia que transforma o campo.</p></div>
-        <div><h4>Links</h4><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a></div>
-        <div><h4>Redes</h4><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-youtube"></i> YouTube</a><a
+    <!-- ===== CTA ===== -->
+    <section>
+        <div class="container">
+            <div class="cta-section">
+                <h2>Pronto para levar sua produção para o próximo nível?</h2>
+                <p>Solicite uma avaliação e descubra como a tecnologia pode transformar seus resultados.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
+                    <a href="#contato" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar Orçamento</a>
+                    <a href="#" class="btn-secondary"><i class="fas fa-user-tie"></i> Falar com Especialista</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTATO ===== -->
+    <section id="contato" style="background:var(--cinza-claro); transition: background 0.3s;">
+        <div class="container">
+            <h2 class="section-title text-center">Entre em <span>Contato</span></h2>
+            <div class="contato-grid">
+                <div>
+                    <form>
+                        <div class="form-group"><label>Nome</label><input type="text" placeholder="Seu nome" required></div>
+                        <div class="form-group"><label>Telefone</label><input type="tel" placeholder="(00) 00000-0000" required></div>
+                        <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com" required></div>
+                        <div class="form-group"><label>Cidade</label><input type="text" placeholder="Sua cidade"></div>
+                        <div class="form-group"><label>Mensagem</label><textarea rows="4" placeholder="Como podemos ajudar?"></textarea></div>
+                        <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Enviar</button>
+                    </form>
+                </div>
+                <div>
+                    <div class="info-contato">
+                        <p><i class="fab fa-whatsapp"></i> (43) 99999-9999</p>
+                        <p><i class="fas fa-envelope"></i> contato@primeagrotech.com.br</p>
+                        <p><i class="fas fa-clock"></i> Segunda a Sexta, 08h – 18h</p>
+                        <div class="map-placeholder">📍 Mapa integrado</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div><h4>PrimeAgroTech</h4><p style="margin-top:8px;">Tecnologia que transforma o campo.</p></div>
+                <div><h4>Links</h4><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a></div>
+                <div><h4>Redes</h4><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-youtube"></i> YouTube</a><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
+                <div><h4>Legal</h4><a href="#">Política de Privacidade</a><a href="#">Termos de Uso</a></div>
+            </div>
+            <div class="footer-bottom">© 2026 PrimeAgroTech. Todos os direitos reservados.</div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== MENU MOBILE =====
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navbar').classList.toggle('open');
+        });
+
+        // ===== TEMA ESCURO =====
+        (function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            
+            // Verifica se há preferência salva
+            let currentTheme = localStorage.getItem('theme');
+            
+            // Se não houver preferência salva, verifica a preferência do sistema
+            if (!currentTheme) {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    currentTheme = 'dark';
+                } else {
+                    currentTheme = 'light';
+                }
+            }
+            
+            // Aplica o tema inicial
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-sun';
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                icon.className = 'fas fa-moon';
+            }
+            
+            // Alterna o tema ao clicar
+            themeToggle.addEventListener('click', function() {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                
+                if (isDark) {
+                    // Mudar para claro
+                    document.documentElement.removeAttribute('data-theme');
+                    icon.className = 'fas fa-moon';
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    // Mudar para escuro
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    icon.className = 'fas fa-sun';
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
