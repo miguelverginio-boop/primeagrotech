@@ -1,1156 +1,674 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PrimeAgroTech - Drones Agrícolas</title>
-    <meta name="description" content="PrimeAgroTech - Soluções com drones agrícolas para pulverização, mapeamento e monitoramento de lavouras." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css">
-    
-    <style>
-        /* ===== RESET ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #ffffff;
-            color: #0f172a;
-            line-height: 1.6;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        button {
-            cursor: pointer;
-            font-family: inherit;
-            border: none;
-            background: none;
-        }
-        img {
-            max-width: 100%;
-            display: block;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrimeAgroTech | Drones Agrícolas e Agricultura de Precisão</title>
+  <meta name="description" content="A PrimeAgroTech oferece soluções inteligentes com drones agrícolas para pulverização, monitoramento e agricultura de precisão. Tecnologia que aumenta a produtividade no campo.">
+  <!-- Google Fonts para tipografia moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & VARIÁVEIS ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --verde: #1E8E3E;
+      --azul: #0A66C2;
+      --branco: #FFFFFF;
+      --cinza-claro: #F5F7FA;
+      --cinza-escuro: #1e2a3a;
+      --texto: #1e293b;
+      --sombra: 0 20px 35px -8px rgba(0,0,0,0.1);
+      --radius: 20px;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--branco);
+      color: var(--texto);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-        /* ===== VARIÁVEIS ===== */
-        :root {
-            --primary: #22c55e;
-            --primary-dark: #16a34a;
-            --primary-light: #dcfce7;
-            --dark: #0f172a;
-            --gray: #475569;
-            --gray-light: #94a3b8;
-            --gray-bg: #f8fafc;
-            --border: #e2e8f0;
-            --white: #ffffff;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
-            --radius: 16px;
-            --transition: 0.3s ease;
-        }
+    /* ===== BOTÕES ===== */
+    .btn-primary {
+      background: var(--verde);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+      box-shadow: 0 6px 14px rgba(30, 142, 62, 0.25);
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #157a32;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(30, 142, 62, 0.3);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--azul);
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 1.5px solid var(--azul);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: var(--azul);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(10, 102, 194, 0.15);
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 600;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.2s;
+      box-shadow: 0 6px 14px rgba(37, 211, 102, 0.25);
+      cursor: pointer;
+    }
+    .btn-whatsapp:hover {
+      background: #1da85c;
+      transform: translateY(-3px);
+    }
 
-        /* ===== TEMA ESCURO ===== */
-        body.dark {
-            background: #0a0a0a;
-            color: #f1f5f9;
-        }
-        body.dark .bg-white {
-            background: #1a1a1a !important;
-        }
-        body.dark .bg-gray-bg {
-            background: #141414 !important;
-        }
-        body.dark .border {
-            border-color: #2a2a2a !important;
-        }
-        body.dark .text-gray {
-            color: #cbd5e1 !important;
-        }
-        body.dark .text-gray-light {
-            color: #94a3b8 !important;
-        }
-        body.dark .card {
-            background: #1a1a1a;
-            border-color: #2a2a2a;
-        }
-        body.dark .navbar {
-            background: rgba(10, 10, 10, 0.95) !important;
-            border-color: #2a2a2a !important;
-        }
-        body.dark .hero {
-            background: linear-gradient(135deg, #0a0a0a 0%, #0f2e1f 50%, #0a0a0a 100%);
-        }
-        body.dark .footer {
-            background: #141414 !important;
-            border-color: #2a2a2a !important;
-        }
-        body.dark .gallery-item {
-            background: #141414;
-            border-color: #2a2a2a;
-        }
-        body.dark .gallery-item:hover {
-            background: #1a1a1a;
-            border-color: var(--primary);
-        }
-        body.dark input,
-        body.dark textarea {
-            background: #1e293b;
-            border-color: #334155;
-            color: #f1f5f9;
-        }
-        body.dark input::placeholder,
-        body.dark textarea::placeholder {
-            color: #64748b;
-        }
+    /* ===== HEADER ===== */
+    header {
+      background: var(--branco);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.85);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--verde);
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: var(--azul);
+    }
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-weight: 500;
+      color: var(--texto);
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    nav a:hover { color: var(--verde); }
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .nav-cta .btn-primary { padding: 10px 24px; font-size: 0.9rem; }
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      color: var(--texto);
+      cursor: pointer;
+    }
 
-        /* ===== UTILIDADES ===== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .text-primary {
-            color: var(--primary);
-        }
-        .text-gray {
-            color: var(--gray);
-        }
-        .text-gray-light {
-            color: var(--gray-light);
-        }
-        .bg-gray-bg {
-            background: var(--gray-bg);
-        }
-        .border {
-            border-color: var(--border);
-        }
+    /* ===== HERO ===== */
+    .hero {
+      padding: 60px 0 80px;
+      background: linear-gradient(145deg, #f0f7f0 0%, var(--branco) 80%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: #0b1f2e;
+      margin-bottom: 20px;
+    }
+    .hero-text h1 i {
+      color: var(--verde);
+    }
+    .hero-text p {
+      font-size: 1.25rem;
+      color: #334155;
+      max-width: 90%;
+      margin-bottom: 32px;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .hero-indicators {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 50px;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      padding-top: 32px;
+    }
+    .hero-indicators .item {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-indicators .number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--azul);
+    }
+    .hero-indicators .label {
+      font-size: 0.9rem;
+      color: #475569;
+      font-weight: 500;
+    }
+    .hero-image {
+      background: linear-gradient(135deg, #d4e7d4, #b8d9b8);
+      border-radius: var(--radius);
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--verde);
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: var(--sombra);
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%23e6f0e6"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.15"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.2"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.2"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.15"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.3"/><circle cx="400" cy="160" r="16" fill="%23FFFFFF" opacity="0.7"/></svg>');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .hero-image .badge {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(4px);
+      padding: 16px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      color: var(--azul);
+      box-shadow: var(--sombra);
+    }
 
-        .section {
-            padding: 80px 0;
-        }
-        .section-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--primary-light);
-            color: var(--primary-dark);
-            padding: 6px 16px;
-            border-radius: 9999px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        body.dark .section-tag {
-            background: rgba(34, 197, 94, 0.15);
-            color: var(--primary);
-        }
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            font-weight: 700;
-            margin-top: 16px;
-            line-height: 1.2;
-        }
-        .section-title span {
-            color: var(--primary);
-        }
-        .section-sub {
-            color: var(--gray);
-            margin-top: 12px;
-            max-width: 600px;
-        }
-        body.dark .section-sub {
-            color: #cbd5e1;
-        }
+    /* ===== SEÇÕES GERAIS ===== */
+    section {
+      padding: 80px 0;
+    }
+    .section-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      color: #0b1f2e;
+    }
+    .section-title span { color: var(--verde); }
+    .section-sub {
+      font-size: 1.1rem;
+      color: #475569;
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
 
-        /* ===== BOTÕES ===== */
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--primary);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(34, 197, 94, 0.3);
-        }
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            color: white;
-            padding: 14px 32px;
-            border-radius: 9999px;
-            font-weight: 500;
-            font-size: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: var(--transition);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 20px;
-            border-radius: 9999px;
-            font-weight: 500;
-            font-size: 14px;
-            border: 1px solid var(--border);
-            color: var(--gray);
-            transition: var(--transition);
-        }
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-        body.dark .btn-outline {
-            border-color: #2a2a2a;
-            color: #cbd5e1;
-        }
-        body.dark .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
+    /* ===== SOBRE ===== */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .sobre-card {
+      background: var(--cinza-claro);
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--sombra);
+    }
+    .sobre-card h3 {
+      color: var(--azul);
+      margin-top: 24px;
+      font-size: 1.3rem;
+    }
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .valores-grid li {
+      background: var(--branco);
+      padding: 12px 18px;
+      border-radius: 40px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .valores-grid li i { color: var(--verde); }
 
-        /* ===== NAVBAR ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 16px 0;
-            transition: var(--transition);
-            background: transparent;
-        }
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            box-shadow: var(--shadow);
-        }
-        body.dark .navbar.scrolled {
-            background: rgba(10, 10, 10, 0.92);
-            border-color: #2a2a2a;
-        }
-        .navbar .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.7);
-            transition: var(--transition);
-        }
-        .nav-links a:hover {
-            color: white;
-        }
-        body.dark .nav-links a {
-            color: rgba(255, 255, 255, 0.6);
-        }
-        body.dark .nav-links a:hover {
-            color: white;
-        }
-        .navbar.scrolled .nav-links a {
-            color: var(--gray);
-        }
-        .navbar.scrolled .nav-links a:hover {
-            color: var(--primary);
-        }
-        .navbar.scrolled .nav-brand {
-            color: var(--dark) !important;
-        }
-        body.dark .navbar.scrolled .nav-brand {
-            color: white !important;
-        }
+    /* ===== SERVIÇOS ===== */
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 30px;
+    }
+    .servico-card {
+      background: var(--branco);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      box-shadow: var(--sombra);
+      transition: 0.25s;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+    .servico-card:hover { transform: translateY(-8px); box-shadow: 0 30px 40px -12px rgba(0,0,0,0.12); }
+    .servico-card i {
+      font-size: 2.6rem;
+      color: var(--verde);
+      margin-bottom: 18px;
+    }
+    .servico-card h4 { font-size: 1.4rem; margin-bottom: 8px; }
+    .servico-card p { color: #475569; }
 
-        .nav-brand {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .nav-brand i {
-            color: var(--primary);
-        }
-        .nav-cta {
-            background: var(--primary);
-            color: white !important;
-            padding: 8px 24px;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition);
-        }
-        .nav-cta:hover {
-            background: var(--primary-dark) !important;
-            transform: translateY(-2px);
-        }
+    /* ===== BENEFÍCIOS / DIFERENCIAIS ===== */
+    .beneficios-grid, .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
+      gap: 28px;
+    }
+    .beneficio-card, .diferencial-card {
+      background: var(--cinza-claro);
+      padding: 32px 20px;
+      border-radius: var(--radius);
+      text-align: center;
+      transition: 0.2s;
+    }
+    .beneficio-card i, .diferencial-card i {
+      font-size: 2.8rem;
+      color: var(--azul);
+      margin-bottom: 16px;
+    }
+    .diferencial-card {
+      background: var(--branco);
+      box-shadow: var(--sombra);
+      text-align: left;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 20px 24px;
+    }
+    .diferencial-card i { font-size: 1.8rem; margin-bottom: 0; color: var(--verde); }
 
-        /* Mobile Menu */
-        .mobile-toggle {
-            display: none;
-            font-size: 24px;
-            color: white;
-            padding: 4px;
-        }
-        body.dark .mobile-toggle {
-            color: white;
-        }
-        .navbar.scrolled .mobile-toggle {
-            color: var(--dark);
-        }
-        body.dark .navbar.scrolled .mobile-toggle {
-            color: white;
-        }
-        .mobile-menu {
-            display: none;
-            background: var(--white);
-            padding: 20px;
-            border-top: 1px solid var(--border);
-        }
-        body.dark .mobile-menu {
-            background: #1a1a1a;
-            border-color: #2a2a2a;
-        }
-        .mobile-menu a {
-            display: block;
-            padding: 12px 16px;
-            color: var(--gray);
-            font-weight: 500;
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-        .mobile-menu a:hover {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-        }
-        body.dark .mobile-menu a:hover {
-            background: rgba(34, 197, 94, 0.1);
-            color: var(--primary);
-        }
-        .mobile-menu.open {
-            display: block;
-        }
+    /* ===== GALERIA ===== */
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 20px;
+    }
+    .galeria-item {
+      background: var(--cinza-claro);
+      border-radius: var(--radius);
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--azul);
+      box-shadow: var(--sombra);
+      background-image: linear-gradient(145deg, #e2eee2, #c8dec8);
+      transition: 0.2s;
+    }
+    .galeria-item:hover { transform: scale(1.02); }
 
-        /* Theme Toggle */
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            border-radius: 9999px;
-            border: 1px solid var(--border);
-            background: var(--gray-bg);
-            color: var(--dark);
-            font-size: 13px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        body.dark .theme-toggle {
-            background: #1e293b;
-            border-color: #334155;
-            color: #f1f5f9;
-        }
-        .theme-toggle:hover {
-            border-color: var(--primary);
-        }
+    /* ===== DEPOIMENTOS ===== */
+    .depo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 30px;
+    }
+    .depo-card {
+      background: var(--branco);
+      padding: 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--sombra);
+      border-left: 6px solid var(--verde);
+    }
+    .depo-card p { font-style: italic; color: #1e293b; margin-bottom: 16px; }
+    .depo-card .autor { font-weight: 700; color: var(--azul); }
 
-        /* ===== HERO ===== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #0a1628 0%, #0f2e1f 50%, #0a1628 100%);
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
-        }
-        .hero-icon {
-            position: absolute;
-            font-size: 200px;
-            color: var(--primary);
-            opacity: 0.06;
-            right: -20px;
-            bottom: -20px;
-            animation: float 8s ease-in-out infinite;
-        }
-        .hero-icon-2 {
-            position: absolute;
-            font-size: 60px;
-            color: var(--primary);
-            opacity: 0.04;
-            top: 15%;
-            left: 5%;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(3deg);
-            }
-        }
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, #0b2b1a, #1E8E3E);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .cta-section h2 { font-size: 2.6rem; font-weight: 700; }
+    .cta-section p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 16px auto 32px; }
+    .cta-section .btn-primary { background: #fff; color: var(--verde); box-shadow: none; }
+    .cta-section .btn-primary:hover { background: #e8f5e9; }
+    .cta-section .btn-secondary { border-color: #fff; color: #fff; }
+    .cta-section .btn-secondary:hover { background: #fff; color: var(--verde); }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 6px 18px;
-            border-radius: 9999px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(40px, 7vw, 72px);
-            font-weight: 700;
-            color: white;
-            line-height: 1.1;
-            margin-top: 24px;
-        }
-        .hero-title span {
-            color: var(--primary);
-        }
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 32px;
-        }
-        .hero-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            max-width: 500px;
-            margin-top: 48px;
-        }
-        .hero-stat {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: var(--radius);
-            padding: 20px 24px;
-        }
-        .hero-stat .number {
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .hero-stat .number i {
-            color: var(--primary);
-            font-size: 20px;
-        }
-        .hero-stat .label {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            margin-top: 4px;
-        }
+    /* ===== CONTATO ===== */
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { font-weight: 600; display: block; margin-bottom: 6px; }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid #d1d9e6;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--verde);
+      box-shadow: 0 0 0 3px rgba(30,142,62,0.15);
+    }
+    .info-contato i { color: var(--verde); width: 28px; }
+    .info-contato p { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
 
-        /* ===== CARDS ===== */
-        .card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 32px 24px;
-            transition: var(--transition);
-        }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-        }
-        .card-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--primary-light);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            color: var(--primary-dark);
-            margin-bottom: 16px;
-        }
-        body.dark .card-icon {
-            background: rgba(34, 197, 94, 0.15);
-            color: var(--primary);
-        }
-        .card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .card p {
-            color: var(--gray);
-            font-size: 15px;
-        }
-        body.dark .card p {
-            color: #cbd5e1;
-        }
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0b1f2e;
+      color: #b0c4d9;
+      padding: 48px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px,1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-grid h4 { color: #fff; margin-bottom: 18px; }
+    .footer-grid a { display: block; margin-bottom: 8px; transition: 0.2s; }
+    .footer-grid a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid #1e3347;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
 
-        /* ===== GRID ===== */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-        }
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
-
-        /* ===== GALERIA ===== */
-        .gallery-item {
-            background: var(--gray-bg);
-            border: 2px dashed var(--border);
-            border-radius: var(--radius);
-            padding: 32px 16px;
-            text-align: center;
-            transition: var(--transition);
-            min-height: 160px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .gallery-item:hover {
-            border-color: var(--primary);
-            transform: scale(1.03);
-        }
-        .gallery-item i {
-            font-size: 48px;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-        .gallery-item span {
-            font-weight: 500;
-            color: var(--gray);
-        }
-        body.dark .gallery-item span {
-            color: #cbd5e1;
-        }
-
-        /* ===== CONTATO ===== */
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 16px 20px;
-            background: var(--gray-bg);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-        }
-        body.dark .contact-item {
-            background: #141414;
-            border-color: #2a2a2a;
-        }
-        .contact-item .icon {
-            width: 44px;
-            height: 44px;
-            background: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-dark);
-            font-size: 20px;
-        }
-        body.dark .contact-item .icon {
-            background: rgba(34, 197, 94, 0.15);
-            color: var(--primary);
-        }
-        .contact-item .label {
-            font-size: 13px;
-            color: var(--gray-light);
-        }
-        .contact-item .value {
-            font-weight: 600;
-        }
-        body.dark .contact-item .value {
-            color: white;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 4px;
-            color: var(--gray);
-        }
-        body.dark .form-group label {
-            color: #cbd5e1;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            background: var(--gray-bg);
-            font-size: 15px;
-            font-family: inherit;
-            transition: var(--transition);
-            color: var(--dark);
-        }
-        body.dark .form-group input,
-        body.dark .form-group textarea {
-            background: #1e293b;
-            border-color: #334155;
-            color: #f1f5f9;
-        }
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: var(--gray-bg);
-            border-top: 1px solid var(--border);
-            padding: 24px 0;
-        }
-        .footer .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 18px;
-        }
-        .footer-brand i {
-            color: var(--primary);
-        }
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-        .footer-social a {
-            color: var(--gray-light);
-            font-size: 20px;
-            transition: var(--transition);
-        }
-        .footer-social a:hover {
-            color: var(--primary);
-        }
-        .footer-copy {
-            color: var(--gray-light);
-            font-size: 14px;
-        }
-
-        /* ===== RESPONSIVO ===== */
-        @media (max-width: 1024px) {
-            .grid-3 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .grid-4 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .mobile-toggle {
-                display: block;
-            }
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
-            .grid-4 {
-                grid-template-columns: 1fr 1fr;
-            }
-            .section {
-                padding: 60px 0;
-            }
-            .section-title {
-                font-size: 28px;
-            }
-            .hero-stats {
-                grid-template-columns: 1fr;
-            }
-            .hero-title {
-                font-size: 32px;
-            }
-            .footer .container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .contact-form {
-                margin-top: 32px;
-            }
-        }
-        @media (max-width: 480px) {
-            .grid-4 {
-                grid-template-columns: 1fr;
-            }
-            .hero-buttons {
-                flex-direction: column;
-            }
-            .hero-buttons .btn-primary,
-            .hero-buttons .btn-secondary {
-                justify-content: center;
-                text-align: center;
-            }
-        }
-    </style>
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-text p { max-width: 100%; }
+      .sobre-grid { grid-template-columns: 1fr; }
+      .contato-grid { grid-template-columns: 1fr; }
+      .hero-indicators { gap: 20px; }
+      .section-title { font-size: 2rem; }
+    }
+    @media (max-width: 720px) {
+      nav { display: none; width: 100%; flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px 0; }
+      nav.open { display: flex; }
+      .menu-toggle { display: block; }
+      .nav-cta { flex-wrap: wrap; }
+      .hero-text h1 { font-size: 2.2rem; }
+      .hero-indicators .number { font-size: 1.6rem; }
+    }
+  </style>
 </head>
 <body>
-
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="#hero" class="nav-brand">
-                <i class="ri-drone-line"></i>
-                PrimeAgroTech
-            </a>
-
-            <div class="nav-links">
-                <a href="#about">Sobre</a>
-                <a href="#services">Serviços</a>
-                <a href="#gallery">Galeria</a>
-                <button onclick="toggleTheme()" class="theme-toggle">
-                    <i id="themeIcon" class="ri-moon-line"></i>
-                    <span id="themeLabel">Escuro</span>
-                </button>
-                <a href="#contact" class="nav-cta">Solicitar Orçamento</a>
-            </div>
-
-            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobile()">
-                <i class="ri-menu-line"></i>
-            </button>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">Prime<span>Agro</span>Tech</div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <nav id="navbar">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+        <div class="nav-cta">
+          <a href="#contato" class="btn-primary" style="padding:10px 22px; font-size:0.9rem;"><i class="fas fa-file-invoice"></i> Orçamento</a>
+          <a href="#" class="btn-whatsapp" style="padding:10px 22px; font-size:0.9rem;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         </div>
+      </nav>
+    </div>
+  </header>
 
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#about" onclick="closeMobile()">Sobre</a>
-            <a href="#services" onclick="closeMobile()">Serviços</a>
-            <a href="#gallery" onclick="closeMobile()">Galeria</a>
-            <a href="#contact" onclick="closeMobile()">Contato</a>
-            <button onclick="toggleTheme();closeMobile()" style="display:flex;align-items:center;gap:8px;padding:12px 16px;width:100%;font-weight:500;color:var(--gray);background:none;border:none;font-family:inherit;font-size:15px;">
-                <i id="mobileThemeIcon" class="ri-moon-line"></i>
-                <span id="mobileThemeLabel">Modo Escuro</span>
-            </button>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Tecnologia que eleva <i>sua produtividade</i> no campo</h1>
+        <p>Soluções inteligentes com drones para pulverização, monitoramento e agricultura de precisão.</p>
+        <div class="hero-buttons">
+          <a href="#contato" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar Orçamento</a>
+          <a href="#" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
         </div>
-    </nav>
-
-    <!-- ===== HERO ===== -->
-    <section class="hero" id="hero">
-        <i class="ri-drone-line hero-icon"></i>
-        <i class="ri-plant-line hero-icon-2"></i>
-
-        <div class="container" style="position:relative;z-index:2;width:100%;">
-            <div class="hero-content">
-                <span class="hero-badge">
-                    <i class="ri-drone-line"></i>
-                    Tecnologia Avançada para o Agro
-                </span>
-                <h1 class="hero-title">
-                    Tecnologia que eleva<br>sua produtividade<br>
-                    <span>no campo</span>
-                </h1>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">
-                        Solicitar Orçamento
-                        <i class="ri-arrow-right-line"></i>
-                    </a>
-                    <a href="#services" class="btn-secondary">
-                        <i class="ri-play-circle-line"></i>
-                        Conhecer Serviços
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="number">
-                            <i class="ri-plant-line"></i>
-                            200+
-                        </div>
-                        <div class="label">Hectares monitorados</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="number">
-                            <i class="ri-user-line"></i>
-                            8
-                        </div>
-                        <div class="label">Clientes que confiam</div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-indicators">
+          <div class="item"><span class="number">+50</span><span class="label">Projetos Realizados</span></div>
+          <div class="item"><span class="number">+500</span><span class="label">Hectares Monitorados</span></div>
+          <div class="item"><span class="number">98%</span><span class="label">Satisfação dos Clientes</span></div>
+          <div class="item"><span class="number">🌎</span><span class="label">Diversas Regiões</span></div>
         </div>
-    </section>
+      </div>
+      <div class="hero-image">
+        <span class="badge"><i class="fas fa-drone"></i> Drone em operação</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== SOBRE ===== -->
-    <section class="section" id="about" style="background:var(--gray-bg);">
-        <div class="container">
-            <div class="grid-2" style="align-items:center;">
-                <div>
-                    <span class="section-tag">
-                        <i class="ri-information-line"></i>
-                        Sobre Nós
-                    </span>
-                    <h2 class="section-title">
-                        Inovação e tecnologia<br>para o <span>agronegócio</span>
-                    </h2>
-                    <p style="color:var(--gray);margin-top:16px;font-size:16px;line-height:1.8;">
-                        A <strong style="color:var(--dark);">PrimeAgroTech</strong> é uma empresa especializada em soluções com drones agrícolas, 
-                        sediada em <strong style="color:var(--dark);">Arapoti, Paraná</strong>. Nossa missão é levar tecnologia de ponta 
-                        para o campo, otimizando processos e aumentando a produtividade.
-                    </p>
-                    <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;">
-                        <div style="display:flex;align-items:center;gap:12px;">
-                            <i class="ri-checkbox-circle-fill" style="color:var(--primary);font-size:20px;"></i>
-                            <span style="color:var(--gray);">Equipe especializada em agricultura de precisão</span>
-                        </div>
-                        <div style="display:flex;align-items:center;gap:12px;">
-                            <i class="ri-checkbox-circle-fill" style="color:var(--primary);font-size:20px;"></i>
-                            <span style="color:var(--gray);">Tecnologia homologada e certificada</span>
-                        </div>
-                        <div style="display:flex;align-items:center;gap:12px;">
-                            <i class="ri-checkbox-circle-fill" style="color:var(--primary);font-size:20px;"></i>
-                            <span style="color:var(--gray);">Atendimento personalizado</span>
-                        </div>
-                    </div>
-                </div>
-                <div style="position:relative;">
-                    <div style="background:linear-gradient(135deg,var(--primary-light),#bbf7d0);border-radius:var(--radius);padding:60px 40px;text-align:center;border:2px dashed var(--primary);min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-                        <i class="ri-drone-line" style="font-size:80px;color:var(--primary);animation:float 4s ease-in-out infinite;"></i>
-                        <p style="font-size:20px;font-weight:600;color:var(--primary-dark);margin-top:16px;">Tecnologia aérea para o agro</p>
-                        <p style="color:var(--gray);">Soluções inovadoras com drones</p>
-                    </div>
-                    <div style="position:absolute;bottom:-16px;right:-16px;background:white;padding:16px 24px;border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--border);">
-                        <div style="display:flex;align-items:center;gap:12px;">
-                            <div style="width:40px;height:40px;background:var(--primary-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--primary-dark);font-size:20px;">
-                                <i class="ri-drone-line"></i>
-                            </div>
-                            <div>
-                                <div style="font-size:12px;color:var(--gray-light);">Tecnologia</div>
-                                <div style="font-weight:700;">100% nacional</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div>
+          <h2 class="section-title">Sobre a <span>PrimeAgroTech</span></h2>
+          <p style="font-size:1.1rem; color:#334155; margin-bottom:24px;">A PrimeAgroTech nasceu com o propósito de levar inovação e eficiência ao agronegócio através da tecnologia de drones e soluções inteligentes para o campo.</p>
+          <div class="sobre-card">
+            <h3><i class="fas fa-bullseye" style="color:var(--verde);"></i> Missão</h3>
+            <p>Transformar a gestão agrícola através de tecnologias que aumentam produtividade, reduzem custos e promovem sustentabilidade.</p>
+            <h3><i class="fas fa-eye" style="color:var(--azul);"></i> Visão</h3>
+            <p>Ser referência regional em soluções tecnológicas para o agronegócio.</p>
+          </div>
         </div>
-    </section>
-
-    <!-- ===== SERVIÇOS ===== -->
-    <section class="section" id="services">
-        <div class="container">
-            <div style="text-align:center;max-width:700px;margin:0 auto 48px;">
-                <span class="section-tag">
-                    <i class="ri-service-line"></i>
-                    Nossos Serviços
-                </span>
-                <h2 class="section-title">
-                    Soluções completas em <span>drones agrícolas</span>
-                </h2>
-                <p class="section-sub" style="margin:12px auto 0;">
-                    Oferecemos serviços especializados para atender todas as necessidades da sua lavoura
-                </p>
-            </div>
-
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="ri-drone-line"></i>
-                    </div>
-                    <h3>Pulverização</h3>
-                    <p>Aplicação precisa de defensivos agrícolas com drones, reduzindo custos e aumentando a eficiência.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="ri-map-2-line"></i>
-                    </div>
-                    <h3>Mapeamento Aéreo</h3>
-                    <p>Mapeamento detalhado com imagens de alta resolução para análises precisas da sua lavoura.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="ri-line-chart-line"></i>
-                    </div>
-                    <h3>Monitoramento</h3>
-                    <p>Acompanhamento contínuo da saúde das lavouras com sensores NDVI e inteligência artificial.</p>
-                </div>
-            </div>
+        <div>
+          <div style="background:var(--cinza-claro); border-radius:var(--radius); padding:32px;">
+            <h3 style="font-size:1.6rem; margin-bottom:20px;">Valores</h3>
+            <ul class="valores-grid">
+              <li><i class="fas fa-lightbulb"></i> Inovação</li>
+              <li><i class="fas fa-chart-line"></i> Compromisso com resultados</li>
+              <li><i class="fas fa-leaf"></i> Sustentabilidade</li>
+              <li><i class="fas fa-handshake"></i> Transparência</li>
+              <li><i class="fas fa-star"></i> Excelência no atendimento</li>
+            </ul>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== GALERIA ===== -->
-    <section class="section" id="gallery" style="background:var(--gray-bg);">
-        <div class="container">
-            <div style="text-align:center;max-width:700px;margin:0 auto 48px;">
-                <span class="section-tag">
-                    <i class="ri-image-line"></i>
-                    Galeria
-                </span>
-                <h2 class="section-title">
-                    Tecnologia em <span>ação</span>
-                </h2>
-                <p class="section-sub" style="margin:12px auto 0;">
-                    Conheça nossas soluções em drones agrícolas
-                </p>
-            </div>
+  <!-- SERVIÇOS -->
+  <section id="servicos" style="background:var(--cinza-claro);">
+    <div class="container text-center">
+      <h2 class="section-title">Nossos <span>Serviços</span></h2>
+      <p class="section-sub mx-auto">Tecnologia de ponta para o campo, com precisão e eficiência.</p>
+      <div class="servicos-grid">
+        <div class="servico-card"><i class="fas fa-spray-can"></i><h4>Pulverização com Drones</h4><p>Aplicação precisa com redução de desperdícios.</p></div>
+        <div class="servico-card"><i class="fas fa-map-marked-alt"></i><h4>Mapeamento Aéreo</h4><p>Levantamento detalhado com imagens de alta resolução.</p></div>
+        <div class="servico-card"><i class="fas fa-seedling"></i><h4>Monitoramento de Lavouras</h4><p>Identificação precoce de falhas, pragas e doenças.</p></div>
+        <div class="servico-card"><i class="fas fa-chart-pie"></i><h4>Agricultura de Precisão</h4><p>Análises inteligentes para decisões estratégicas.</p></div>
+      </div>
+    </div>
+  </section>
 
-            <div class="grid-4">
-                <div class="gallery-item">
-                    <i class="ri-drone-line"></i>
-                    <span>Drones de pulverização</span>
-                </div>
-                <div class="gallery-item">
-                    <i class="ri-map-2-line"></i>
-                    <span>Mapeamento aéreo</span>
-                </div>
-                <div class="gallery-item">
-                    <i class="ri-line-chart-line"></i>
-                    <span>Monitoramento NDVI</span>
-                </div>
-                <div class="gallery-item">
-                    <i class="ri-cloud-line"></i>
-                    <span>Dados em tempo real</span>
-                </div>
-            </div>
+  <!-- BENEFÍCIOS -->
+  <section id="beneficios">
+    <div class="container text-center">
+      <h2 class="section-title">Benefícios <span>Inteligentes</span></h2>
+      <div class="beneficios-grid">
+        <div class="beneficio-card"><i class="fas fa-coins"></i><h4>Redução de Custos</h4><p>Menor desperdício e maior eficiência.</p></div>
+        <div class="beneficio-card"><i class="fas fa-rocket"></i><h4>Maior Produtividade</h4><p>Melhor aproveitamento das áreas.</p></div>
+        <div class="beneficio-card"><i class="fas fa-recycle"></i><h4>Sustentabilidade</h4><p>Aplicações controladas e menor impacto.</p></div>
+        <div class="beneficio-card"><i class="fas fa-microchip"></i><h4>Precisão Tecnológica</h4><p>Dados confiáveis para decisões.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section id="diferenciais" style="background:var(--cinza-claro);">
+    <div class="container">
+      <h2 class="section-title text-center">Por que escolher a <span>PrimeAgroTech</span>?</h2>
+      <div class="diferenciais-grid">
+        <div class="diferencial-card"><i class="fas fa-drone"></i> Equipamentos modernos</div>
+        <div class="diferencial-card"><i class="fas fa-users-cog"></i> Equipe especializada</div>
+        <div class="diferencial-card"><i class="fas fa-headset"></i> Atendimento personalizado</div>
+        <div class="diferencial-card"><i class="fas fa-file-alt"></i> Relatórios detalhados</div>
+        <div class="diferencial-card"><i class="fas fa-draw-polygon"></i> Planejamento estratégico</div>
+        <div class="diferencial-card"><i class="fas fa-chart-simple"></i> Tecnologia aplicada aos resultados</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section id="galeria">
+    <div class="container text-center">
+      <h2 class="section-title">Galeria <span>Visual</span></h2>
+      <div class="galeria-grid">
+        <div class="galeria-item"><i class="fas fa-drone"></i> Drones</div>
+        <div class="galeria-item"><i class="fas fa-tractor"></i> Pulverização</div>
+        <div class="galeria-item"><i class="fas fa-map"></i> Mapeamento</div>
+        <div class="galeria-item"><i class="fas fa-satellite"></i> Imagens aéreas</div>
+        <div class="galeria-item"><i class="fas fa-play-circle"></i> Vídeos</div>
+        <div class="galeria-item"><i class="fas fa-chart-line"></i> Antes & Depois</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" style="background:var(--cinza-claro);">
+    <div class="container text-center">
+      <h2 class="section-title">O que dizem <span>nossos clientes</span></h2>
+      <div class="depo-grid">
+        <div class="depo-card"><p>"A tecnologia utilizada pela PrimeAgroTech trouxe mais eficiência para nossa operação."</p><div class="autor">— Carlos Mendes, Produtor Rural</div></div>
+        <div class="depo-card"><p>"Excelente atendimento e relatórios muito detalhados."</p><div class="autor">— Fernanda Oliveira, Gestora Agrícola</div></div>
+        <div class="depo-card"><p>"Soluções modernas que realmente agregam valor ao campo."</p><div class="autor">— Ricardo Santos, Cooperativa Agro</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container">
+      <div class="cta-section">
+        <h2>Pronto para levar sua produção para o próximo nível?</h2>
+        <p>Solicite uma avaliação e descubra como a tecnologia pode transformar seus resultados.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:16px; justify-content:center;">
+          <a href="#contato" class="btn-primary"><i class="fas fa-file-invoice"></i> Solicitar Orçamento</a>
+          <a href="#" class="btn-secondary"><i class="fas fa-user-tie"></i> Falar com Especialista</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== CONTATO ===== -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="grid-2" style="align-items:start;gap:48px;">
-                <div>
-                    <span class="section-tag">
-                        <i class="ri-customer-service-2-line"></i>
-                        Fale Conosco
-                    </span>
-                    <h2 class="section-title">
-                        Vamos transformar<br>sua <span>produção</span>
-                    </h2>
-                    <p style="color:var(--gray);margin-top:16px;">
-                        Estamos prontos para ajudar você a levar mais tecnologia e eficiência para sua lavoura.
-                    </p>
-
-                    <div class="contact-info" style="margin-top:24px;">
-                        <div class="contact-item">
-                            <div class="icon"><i class="ri-whatsapp-line"></i></div>
-                            <div>
-                                <div class="label">WhatsApp</div>
-                                <div class="value">(43) 9 9999-9999</div>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="icon"><i class="ri-phone-line"></i></div>
-                            <div>
-                                <div class="label">Telefone</div>
-                                <div class="value">(43) 9999-9999</div>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="icon"><i class="ri-mail-line"></i></div>
-                            <div>
-                                <div class="label">E-mail</div>
-                                <div class="value">contato@primeagrotech.com</div>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="icon"><i class="ri-map-pin-line"></i></div>
-                            <div>
-                                <div class="label">Localização</div>
-                                <div class="value">Arapoti, Paraná - Brasil</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card contact-form" style="padding:32px;">
-                    <h3 style="font-size:22px;margin-bottom:16px;">Envie uma mensagem</h3>
-                    <form onsubmit="alert('Mensagem enviada! Em breve entraremos em contato.');return false;">
-                        <div class="form-group">
-                            <label>Nome Completo</label>
-                            <input type="text" placeholder="Seu nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label>E-mail</label>
-                            <input type="email" placeholder="seu@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label>WhatsApp</label>
-                            <input type="tel" placeholder="(43) 9 9999-9999">
-                        </div>
-                        <div class="form-group">
-                            <label>Mensagem</label>
-                            <textarea placeholder="Descreva sua necessidade" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:16px;">
-                            <i class="ri-send-plane-line"></i>
-                            Enviar Mensagem
-                        </button>
-                    </form>
-                </div>
-            </div>
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="container">
+      <h2 class="section-title text-center">Entre em <span>Contato</span></h2>
+      <div class="contato-grid">
+        <div>
+          <form>
+            <div class="form-group"><label>Nome</label><input type="text" placeholder="Seu nome" required></div>
+            <div class="form-group"><label>Telefone</label><input type="tel" placeholder="(00) 00000-0000" required></div>
+            <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com" required></div>
+            <div class="form-group"><label>Cidade</label><input type="text" placeholder="Sua cidade"></div>
+            <div class="form-group"><label>Mensagem</label><textarea rows="4" placeholder="Como podemos ajudar?"></textarea></div>
+            <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Enviar</button>
+          </form>
         </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-brand">
-                <i class="ri-drone-line"></i>
-                PrimeAgroTech
-            </div>
-            <div class="footer-copy">
-                &copy; 2026 PrimeAgroTech. Todos os direitos reservados.
-            </div>
-            <div class="footer-social">
-                <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-                <a href="#" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
-                <a href="#" aria-label="YouTube"><i class="ri-youtube-line"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
-            </div>
+        <div>
+          <div class="info-contato" style="background:var(--cinza-claro); padding:32px; border-radius:var(--radius);">
+            <p><i class="fab fa-whatsapp"></i> (43) 99999-9999</p>
+            <p><i class="fas fa-envelope"></i> contato@primeagrotech.com.br</p>
+            <p><i class="fas fa-clock"></i> Segunda a Sexta, 08h – 18h</p>
+            <div style="margin-top:24px; background:#d9e3f0; height:160px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:#0A66C2; font-weight:600;">📍 Mapa integrado</div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // ===== NAVBAR SCROLL =====
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div><h4>PrimeAgroTech</h4><p style="margin-top:8px;">Tecnologia que transforma o campo.</p></div>
+        <div><h4>Links</h4><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a></div>
+        <div><h4>Redes</h4><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-youtube"></i> YouTube</a><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
+        <div><h4>Legal</h4><a href="#">Política de Privacidade</a><a href="#">Termos de Uso</a></div>
+      </div>
+      <div class="footer-bottom">© 2026 PrimeAgroTech. Todos os direitos reservados.</div>
+    </div>
+  </footer>
 
-        // ===== MOBILE MENU =====
-        function toggleMobile() {
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('mobileToggle').querySelector('i');
-            menu.classList.toggle('open');
-            if (menu.classList.contains('open')) {
-                icon.className = 'ri-close-line';
-            } else {
-                icon.className = 'ri-menu-line';
-            }
-        }
-
-        function closeMobile() {
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('mobileToggle').querySelector('i');
-            menu.classList.remove('open');
-            icon.className = 'ri-menu-line';
-        }
-
-        // ===== TEMA =====
-        function toggleTheme() {
-            document.body.classList.toggle('dark');
-            const isDark = document.body.classList.contains('dark');
-
-            const themeIcon = document.getElementById('themeIcon');
-            const themeLabel = document.getElementById('themeLabel');
-            const mobileThemeIcon = document.getElementById('mobileThemeIcon');
-            const mobileThemeLabel = document.getElementById('mobileThemeLabel');
-
-            if (isDark) {
-                themeIcon.className = 'ri-sun-line';
-                themeLabel.textContent = 'Claro';
-                mobileThemeIcon.className = 'ri-sun-line';
-                mobileThemeLabel.textContent = 'Modo Claro';
-            } else {
-                themeIcon.className = 'ri-moon-line';
-                themeLabel.textContent = 'Escuro';
-                mobileThemeIcon.className = 'ri-moon-line';
-                mobileThemeLabel.textContent = 'Modo Escuro';
-            }
-        }
-
-        // ===== SCROLL SUAVE =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 80;
-                    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                    window.scrollTo({ top, behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
-
+  <!-- TOGGLE MENU -->
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navbar').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
