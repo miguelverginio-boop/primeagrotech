@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PrimeAgroTech - Drones Agrícolas</title>
-  <meta name="description" content="PrimeAgroTech - Soluções com drones agrícolas para pulverização, mapeamento e monitoramento de lavouras." />
+  <title>PrimeAgroTech - Drones Agrícolas e Agricultura de Precisão</title>
+  <meta name="description" content="PrimeAgroTech: Soluções inteligentes com drones agrícolas para pulverização, mapeamento aéreo e monitoramento de lavouras. Tecnologia que eleva sua produtividade no campo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -30,59 +30,68 @@
     };
   </script>
   <style>
+    /* Reset e base */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    
-    :root {
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8fafc;
-      --bg-card: #ffffff;
-      --text-primary: #0f172a;
-      --text-secondary: #475569;
-      --text-muted: #94a3b8;
-      --border-color: #e2e8f0;
-      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1);
-    }
-    
-    body.dark-mode {
-      --bg-primary: #0a0a0a;
-      --bg-secondary: #141414;
-      --bg-card: #1a1a1a;
-      --text-primary: #f1f5f9;
-      --text-secondary: #cbd5e1;
-      --text-muted: #64748b;
-      --border-color: #2a2a2a;
-    }
-    
     body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #ffffff;
+      color: #0f172a;
       transition: background 0.3s ease, color 0.3s ease;
     }
-    
-    .navbar-scrolled {
-      background: var(--bg-primary) !important;
-      backdrop-filter: blur(16px) !important;
-      border-bottom: 1px solid var(--border-color) !important;
-      box-shadow: var(--shadow);
+
+    /* Tema escuro */
+    body.dark-mode {
+      background: #0a0a0a;
+      color: #f1f5f9;
     }
-    
+    body.dark-mode .bg-white { background: #1a1a1a !important; }
+    body.dark-mode .bg-slate-50 { background: #141414 !important; }
+    body.dark-mode .border-slate-200 { border-color: #2a2a2a !important; }
+    body.dark-mode .text-slate-600 { color: #cbd5e1 !important; }
+    body.dark-mode .text-slate-700 { color: #e2e8f0 !important; }
+    body.dark-mode .text-slate-500 { color: #94a3b8 !important; }
+    body.dark-mode .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5) !important; }
+    body.dark-mode .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.6) !important; }
+    body.dark-mode .bg-slate-100 { background: #2a2a2a !important; }
+    body.dark-mode .hover\:bg-slate-100:hover { background: #333 !important; }
+
+    /* Navbar */
+    .navbar-scrolled {
+      background: rgba(255, 255, 255, 0.9) !important;
+      backdrop-filter: blur(16px) !important;
+      border-bottom: 1px solid #e2e8f0 !important;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1) !important;
+    }
+    body.dark-mode .navbar-scrolled {
+      background: rgba(10, 10, 10, 0.95) !important;
+      border-bottom-color: #2a2a2a !important;
+    }
+
+    /* Cards e containers */
     .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      transition: all 0.3s ease;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    body.dark-mode .card {
+      background: #1a1a1a;
+      border-color: #2a2a2a;
     }
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
     }
-    
+    body.dark-mode .card:hover {
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.4);
+    }
+
+    /* Botão de tema */
     .theme-toggle {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
       padding: 8px 16px;
       border-radius: 9999px;
       cursor: pointer;
@@ -92,156 +101,204 @@
       align-items: center;
       gap: 6px;
     }
-    
+    body.dark-mode .theme-toggle {
+      background: #1e293b;
+      border-color: #334155;
+      color: #f1f5f9;
+    }
+    .theme-toggle:hover {
+      background: #e2e8f0;
+    }
+    body.dark-mode .theme-toggle:hover {
+      background: #334155;
+    }
+
+    /* Animações */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
     @keyframes float {
       0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(2deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
     }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.4); }
     }
-    @keyframes droneFly {
-      0% { transform: translateX(-20px) translateY(0); }
-      50% { transform: translateX(20px) translateY(-10px); }
-      100% { transform: translateX(-20px) translateY(0); }
-    }
-    
-    .animate-fade-up { opacity: 0; animation: fadeUp 0.6s ease forwards; }
-    .animate-float { animation: float 4s ease-in-out infinite; }
-    .animate-pulse { animation: pulse 3s ease-in-out infinite; }
-    .animate-drone { animation: droneFly 6s ease-in-out infinite; }
+    .animate-fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+    .animate-float { animation: float 5s ease-in-out infinite; }
+    .animate-pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
     .delay-100 { animation-delay: 0.1s; }
     .delay-200 { animation-delay: 0.2s; }
     .delay-300 { animation-delay: 0.3s; }
     .delay-400 { animation-delay: 0.4s; }
     .delay-500 { animation-delay: 0.5s; }
-    
-    /* Hero com gradiente e padrão */
-    .hero-pattern {
-      background: linear-gradient(135deg, #0a1628 0%, #1a3a2a 50%, #0a1628 100%);
+
+    /* Hero com gradiente e ícones */
+    .hero-section {
+      background: linear-gradient(135deg, #0a1628 0%, #0f2e1f 40%, #1a4a2a 70%, #0a1628 100%);
       position: relative;
       overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
-    .hero-pattern::before {
+    .hero-section::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: 
-        radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 50%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
-      animation: pulse 8s ease-in-out infinite;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 60%);
+      animation: pulseGlow 8s ease-in-out infinite;
     }
-    
-    /* Ícones grandes animados */
-    .icon-drone-big {
-      font-size: 120px;
+    .hero-icon-drone {
+      font-size: 180px;
       color: #22c55e;
-      opacity: 0.15;
+      opacity: 0.1;
       position: absolute;
-      right: -30px;
-      bottom: -30px;
-      animation: float 6s ease-in-out infinite;
+      right: -40px;
+      bottom: -40px;
+      animation: float 7s ease-in-out infinite;
     }
-    
-    .gallery-icon {
-      width: 100%;
-      height: 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-secondary);
-      border-radius: 12px;
-      border: 2px dashed var(--border-color);
-      transition: all 0.4s ease;
-      cursor: pointer;
-    }
-    .gallery-icon:hover {
-      border-color: #22c55e;
-      background: var(--bg-card);
-      transform: scale(1.02);
-    }
-    .gallery-icon i {
-      font-size: 64px;
+    .hero-icon-pattern {
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      font-size: 60px;
       color: #22c55e;
-      margin-bottom: 12px;
+      opacity: 0.05;
+      animation: float 9s ease-in-out infinite reverse;
     }
-    .gallery-icon span {
-      font-size: 14px;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-    
+
+    /* Inputs e formulário */
     input, textarea {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      color: var(--text-primary);
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
       transition: all 0.3s ease;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 15px;
+    }
+    body.dark-mode input, body.dark-mode textarea {
+      background: #1e293b;
+      border-color: #334155;
+      color: #f1f5f9;
     }
     input:focus, textarea:focus {
       outline: none;
       border-color: #22c55e;
-      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
     }
-    
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+    input::placeholder, textarea::placeholder {
+      color: #94a3b8;
+    }
+    body.dark-mode input::placeholder, body.dark-mode textarea::placeholder {
+      color: #64748b;
+    }
+
+    /* Galeria de ícones */
+    .gallery-item {
+      background: #f8fafc;
+      border: 2px dashed #e2e8f0;
+      border-radius: 16px;
+      padding: 32px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+      cursor: default;
+      min-height: 180px;
+    }
+    body.dark-mode .gallery-item {
+      background: #141414;
+      border-color: #2a2a2a;
+    }
+    .gallery-item:hover {
+      border-color: #22c55e;
+      background: #ffffff;
+      transform: scale(1.03);
+    }
+    body.dark-mode .gallery-item:hover {
+      background: #1a1a1a;
+    }
+    .gallery-item i {
+      font-size: 56px;
+      color: #22c55e;
+      margin-bottom: 12px;
+    }
+    .gallery-item span {
+      font-weight: 500;
+      color: #475569;
+      text-align: center;
+    }
+    body.dark-mode .gallery-item span {
+      color: #cbd5e1;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    body.dark-mode ::-webkit-scrollbar-track { background: #1a1a1a; }
     ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #16a34a; }
   </style>
 </head>
 <body>
 
   <!-- ===== NAVBAR ===== -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
     <div class="w-full px-4 sm:px-6 lg:px-12">
       <div class="flex items-center justify-between h-16 md:h-20">
         <div class="hidden md:flex items-center space-x-8">
-          <button onclick="scrollToSection('hero')" class="text-sm font-medium tracking-wide hover:text-agro-600 transition-colors" style="color: var(--text-secondary);">Home</button>
-          <button onclick="scrollToSection('about')" class="text-sm font-medium tracking-wide hover:text-agro-600 transition-colors" style="color: var(--text-secondary);">Sobre</button>
-          <button onclick="scrollToSection('services')" class="text-sm font-medium tracking-wide hover:text-agro-600 transition-colors" style="color: var(--text-secondary);">Serviços</button>
+          <button onclick="scrollToSection('hero')" class="text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors cursor-pointer">Home</button>
+          <button onclick="scrollToSection('about')" class="text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors cursor-pointer">Sobre</button>
+          <button onclick="scrollToSection('services')" class="text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors cursor-pointer">Serviços</button>
         </div>
         <button onclick="scrollToSection('hero')" class="flex items-center gap-2 cursor-pointer">
-          <i class="ri-drone-line text-xl md:text-2xl text-agro-600"></i>
-          <span class="font-serif text-lg md:text-xl font-bold tracking-wide" style="color: var(--text-primary);">PrimeAgroTech</span>
+          <i class="ri-drone-line text-xl md:text-2xl text-agro-400"></i>
+          <span class="font-serif text-lg md:text-xl font-bold tracking-wide text-white">PrimeAgroTech</span>
         </button>
         <div class="hidden md:flex items-center space-x-6">
-          <button onclick="scrollToSection('gallery')" class="text-sm font-medium tracking-wide hover:text-agro-600 transition-colors" style="color: var(--text-secondary);">Galeria</button>
+          <button onclick="scrollToSection('gallery')" class="text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors cursor-pointer">Galeria</button>
           <button onclick="toggleTheme()" class="theme-toggle">
             <i id="theme-icon" class="ri-moon-line"></i>
             <span id="theme-label">Escuro</span>
           </button>
-          <button onclick="scrollToSection('contact')" class="px-6 py-2.5 rounded-full text-sm font-semibold bg-agro-600 text-white hover:bg-agro-700 transition-all cursor-pointer">
+          <button onclick="scrollToSection('contact')" class="px-6 py-2.5 rounded-full text-sm font-semibold bg-agro-500 text-white hover:bg-agro-600 transition-all cursor-pointer shadow-lg shadow-agro-500/25">
             Solicitar Orçamento
           </button>
         </div>
-        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg cursor-pointer" style="color: var(--text-primary);">
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg cursor-pointer text-white/80 hover:text-white transition-colors">
           <i id="mobile-menu-icon" class="ri-menu-line text-2xl"></i>
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden" style="background: var(--bg-primary); border-top: 1px solid var(--border-color);">
+    <div id="mobile-menu" class="md:hidden hidden bg-white/95 dark:bg-[#1a1a1a]/95 backdrop-blur-md border-t border-slate-200 dark:border-[#2a2a2a]">
       <div class="px-4 py-4 space-y-3">
-        <button onclick="scrollToSection('hero');toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary);">Home</button>
-        <button onclick="scrollToSection('about');toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary);">Sobre</button>
-        <button onclick="scrollToSection('services');toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary);">Serviços</button>
-        <button onclick="scrollToSection('gallery');toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary);">Galeria</button>
-        <button onclick="toggleTheme();toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary);">
+        <button onclick="scrollToSection('hero');toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-700 dark:text-slate-300 hover:text-agro-600 hover:bg-agro-50 dark:hover:bg-agro-900/20 rounded-lg transition-colors text-sm font-medium cursor-pointer">Home</button>
+        <button onclick="scrollToSection('about');toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-700 dark:text-slate-300 hover:text-agro-600 hover:bg-agro-50 dark:hover:bg-agro-900/20 rounded-lg transition-colors text-sm font-medium cursor-pointer">Sobre</button>
+        <button onclick="scrollToSection('services');toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-700 dark:text-slate-300 hover:text-agro-600 hover:bg-agro-50 dark:hover:bg-agro-900/20 rounded-lg transition-colors text-sm font-medium cursor-pointer">Serviços</button>
+        <button onclick="scrollToSection('gallery');toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-700 dark:text-slate-300 hover:text-agro-600 hover:bg-agro-50 dark:hover:bg-agro-900/20 rounded-lg transition-colors text-sm font-medium cursor-pointer">Galeria</button>
+        <button onclick="toggleTheme();toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-slate-700 dark:text-slate-300 hover:text-agro-600 hover:bg-agro-50 dark:hover:bg-agro-900/20 rounded-lg transition-colors text-sm font-medium cursor-pointer">
           <i id="mobile-theme-icon" class="ri-moon-line mr-2"></i>
           <span id="mobile-theme-label">Modo Escuro</span>
         </button>
-        <button onclick="scrollToSection('contact');toggleMobileMenu()" class="block w-full text-left px-3 py-2 bg-agro-600 text-white rounded-lg text-sm font-medium">Contato</button>
+        <button onclick="scrollToSection('contact');toggleMobileMenu()" class="block w-full text-left px-3 py-2 bg-agro-500 text-white rounded-lg text-sm font-medium cursor-pointer">Contato</button>
       </div>
     </div>
   </nav>
 
-  <!-- ===== HERO - COM BACKGROUND GRADIENTE E ÍCONE ===== -->
-  <section id="hero" class="relative min-h-screen flex items-center overflow-hidden hero-pattern">
-    <i class="ri-drone-line icon-drone-big"></i>
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="hero-section">
+    <i class="ri-drone-line hero-icon-drone"></i>
+    <i class="ri-plant-line hero-icon-pattern"></i>
+    <i class="ri-cloud-line hero-icon-pattern" style="top: 70%; left: 80%; font-size: 40px; animation-delay: 2s;"></i>
+
     <div class="relative z-10 w-full px-4 sm:px-6 lg:px-12 pt-24 pb-16">
       <div class="max-w-6xl">
         <div class="animate-fade-up">
@@ -251,10 +308,10 @@
         </div>
         <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-tight mt-6 mb-8 animate-fade-up delay-200">
           Tecnologia que eleva<br />sua produtividade<br />
-          <span style="color: #4ade80;">no campo</span>
+          <span class="text-agro-400">no campo</span>
         </h1>
         <div class="flex flex-col sm:flex-row gap-6 animate-fade-up delay-300">
-          <button onclick="scrollToSection('contact')" class="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full font-semibold text-base hover:bg-agro-50 transition-all cursor-pointer">
+          <button onclick="scrollToSection('contact')" class="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full font-semibold text-base hover:bg-agro-50 transition-all cursor-pointer shadow-xl shadow-black/20">
             Solicitar Orçamento
             <span class="w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center group-hover:bg-agro-600 transition-colors">
               <i class="ri-arrow-right-line text-white text-sm"></i>
@@ -264,6 +321,8 @@
             <i class="ri-play-circle-line text-xl"></i>Conhecer Serviços
           </button>
         </div>
+
+        <!-- Cards de estatísticas (com números e textos completos) -->
         <div class="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl animate-fade-up delay-400">
           <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/15">
             <div class="flex items-center gap-3 mb-3">
@@ -272,7 +331,7 @@
               </div>
               <span class="text-white font-semibold text-lg">200+ hectares</span>
             </div>
-            <p class="text-white/70 text-sm leading-relaxed">Hectares monitorados com nossos drones</p>
+            <p class="text-white/70 text-sm leading-relaxed">Hectares monitorados com nossos drones em todo o sul do Brasil</p>
           </div>
           <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/15">
             <div class="flex items-center gap-3 mb-3">
@@ -281,7 +340,7 @@
               </div>
               <span class="text-white font-semibold text-lg">8 clientes</span>
             </div>
-            <p class="text-white/70 text-sm leading-relaxed">Produtores que confiam na nossa tecnologia</p>
+            <p class="text-white/70 text-sm leading-relaxed">Produtores rurais que já confiam na nossa tecnologia</p>
           </div>
         </div>
       </div>
@@ -289,51 +348,51 @@
   </section>
 
   <!-- ===== SOBRE ===== -->
-  <section id="about" class="py-20 px-4 sm:px-6 lg:px-12" style="background: var(--bg-secondary);">
+  <section id="about" class="py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-[#141414]">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-6">
           <div class="animate-fade-up">
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 rounded-full text-sm font-medium">
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 dark:bg-agro-900/30 dark:text-agro-400 rounded-full text-sm font-medium">
               <i class="ri-information-line"></i>Sobre Nós
             </span>
           </div>
-          <h2 class="font-serif text-3xl md:text-4xl font-bold animate-fade-up delay-100" style="color: var(--text-primary);">
-            Inovação e tecnologia<br />para o <span style="color: #22c55e;">agronegócio</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold animate-fade-up delay-100 text-slate-900 dark:text-white">
+            Inovação e tecnologia<br />para o <span class="text-agro-600 dark:text-agro-400">agronegócio</span>
           </h2>
-          <p class="leading-relaxed animate-fade-up delay-200" style="color: var(--text-secondary);">
-            A <strong style="color: var(--text-primary);">PrimeAgroTech</strong> é especializada em soluções com drones agrícolas, sediada em <strong style="color: var(--text-primary);">Arapoti, Paraná</strong>. 
-            Nossa missão é levar tecnologia de ponta para o campo.
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed animate-fade-up delay-200">
+            A <strong class="text-slate-900 dark:text-white">PrimeAgroTech</strong> é uma empresa especializada em soluções com drones agrícolas, sediada em <strong class="text-slate-900 dark:text-white">Arapoti, Paraná</strong>. 
+            Nossa missão é levar tecnologia de ponta para o campo, otimizando processos e aumentando a produtividade dos nossos clientes.
           </p>
           <div class="space-y-3 animate-fade-up delay-300">
             <div class="flex items-start gap-3">
-              <i class="ri-checkbox-circle-fill text-agro-600 text-xl mt-0.5"></i>
-              <span style="color: var(--text-secondary);">Equipe especializada em agricultura de precisão</span>
+              <i class="ri-checkbox-circle-fill text-agro-600 dark:text-agro-400 text-xl mt-0.5"></i>
+              <span class="text-slate-700 dark:text-slate-300">Equipe especializada em agricultura de precisão</span>
             </div>
             <div class="flex items-start gap-3">
-              <i class="ri-checkbox-circle-fill text-agro-600 text-xl mt-0.5"></i>
-              <span style="color: var(--text-secondary);">Tecnologia homologada e certificada</span>
+              <i class="ri-checkbox-circle-fill text-agro-600 dark:text-agro-400 text-xl mt-0.5"></i>
+              <span class="text-slate-700 dark:text-slate-300">Tecnologia homologada e certificada</span>
             </div>
             <div class="flex items-start gap-3">
-              <i class="ri-checkbox-circle-fill text-agro-600 text-xl mt-0.5"></i>
-              <span style="color: var(--text-secondary);">Atendimento personalizado</span>
+              <i class="ri-checkbox-circle-fill text-agro-600 dark:text-agro-400 text-xl mt-0.5"></i>
+              <span class="text-slate-700 dark:text-slate-300">Atendimento personalizado para cada lavoura</span>
             </div>
           </div>
         </div>
         <div class="relative animate-fade-up delay-200">
-          <div class="rounded-2xl shadow-xl w-full h-96 flex flex-col items-center justify-center" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 2px dashed #22c55e;">
-            <i class="ri-drone-line text-8xl text-agro-600 animate-float"></i>
-            <p class="mt-4 text-agro-700 font-medium text-lg">Tecnologia aérea para o agro</p>
-            <p class="text-agro-600/70 text-sm">Soluções inovadoras com drones</p>
+          <div class="rounded-2xl shadow-xl w-full h-80 md:h-96 flex flex-col items-center justify-center bg-gradient-to-br from-agro-50 to-agro-100 dark:from-agro-900/20 dark:to-agro-800/10 border-2 border-dashed border-agro-300 dark:border-agro-700">
+            <i class="ri-drone-line text-8xl text-agro-600 dark:text-agro-400 animate-float"></i>
+            <p class="mt-4 text-agro-700 dark:text-agro-300 font-medium text-lg">Tecnologia aérea para o agro</p>
+            <p class="text-agro-600/70 dark:text-agro-400/70 text-sm">Soluções inovadoras com drones</p>
           </div>
-          <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg border" style="border-color: var(--border-color);">
+          <div class="absolute -bottom-6 -right-6 bg-white dark:bg-[#1a1a1a] p-4 rounded-xl shadow-lg border border-slate-200 dark:border-[#2a2a2a]">
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
-                <i class="ri-drone-line text-agro-600 text-2xl"></i>
+              <div class="w-12 h-12 bg-agro-100 dark:bg-agro-900/30 rounded-full flex items-center justify-center">
+                <i class="ri-drone-line text-agro-600 dark:text-agro-400 text-2xl"></i>
               </div>
               <div>
-                <span style="color: var(--text-muted); font-size: 12px;">Tecnologia</span>
-                <p class="font-semibold" style="color: var(--text-primary);">100% nacional</p>
+                <span class="text-slate-500 dark:text-slate-400 text-xs">Tecnologia</span>
+                <p class="font-semibold text-slate-900 dark:text-white">100% nacional</p>
               </div>
             </div>
           </div>
@@ -343,77 +402,77 @@
   </section>
 
   <!-- ===== SERVIÇOS ===== -->
-  <section id="services" class="py-20 px-4 sm:px-6 lg:px-12" style="background: var(--bg-primary);">
+  <section id="services" class="py-20 px-4 sm:px-6 lg:px-12 bg-white dark:bg-[#0a0a0a]">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <div class="animate-fade-up">
-          <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 rounded-full text-sm font-medium">
+          <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 dark:bg-agro-900/30 dark:text-agro-400 rounded-full text-sm font-medium">
             <i class="ri-service-line"></i>Nossos Serviços
           </span>
         </div>
-        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-4 animate-fade-up delay-100" style="color: var(--text-primary);">
-          Soluções completas em <span style="color: #22c55e;">drones agrícolas</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-4 animate-fade-up delay-100 text-slate-900 dark:text-white">
+          Soluções completas em <span class="text-agro-600 dark:text-agro-400">drones agrícolas</span>
         </h2>
-        <p class="max-w-2xl mx-auto mt-3 animate-fade-up delay-200" style="color: var(--text-secondary);">
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mt-3 animate-fade-up delay-200">
           Oferecemos serviços especializados para atender todas as necessidades da sua lavoura
         </p>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="card p-8 text-center animate-fade-up delay-100">
-          <div class="w-20 h-20 bg-agro-100 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float">
-            <i class="ri-drone-line text-3xl text-agro-600"></i>
+          <div class="w-20 h-20 bg-agro-100 dark:bg-agro-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float">
+            <i class="ri-drone-line text-3xl text-agro-600 dark:text-agro-400"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Pulverização</h3>
-          <p style="color: var(--text-secondary);">Aplicação precisa de defensivos agrícolas com drones, reduzindo custos e aumentando a eficiência.</p>
+          <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Pulverização</h3>
+          <p class="text-slate-600 dark:text-slate-400">Aplicação precisa de defensivos agrícolas com drones, reduzindo custos e aumentando a eficiência.</p>
         </div>
         <div class="card p-8 text-center animate-fade-up delay-200">
-          <div class="w-20 h-20 bg-agro-100 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay: 0.5s;">
-            <i class="ri-map-2-line text-3xl text-agro-600"></i>
+          <div class="w-20 h-20 bg-agro-100 dark:bg-agro-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay: 0.5s;">
+            <i class="ri-map-2-line text-3xl text-agro-600 dark:text-agro-400"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Mapeamento Aéreo</h3>
-          <p style="color: var(--text-secondary);">Mapeamento detalhado com imagens de alta resolução para análises precisas.</p>
+          <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Mapeamento Aéreo</h3>
+          <p class="text-slate-600 dark:text-slate-400">Mapeamento detalhado com imagens de alta resolução para análises precisas da sua lavoura.</p>
         </div>
         <div class="card p-8 text-center animate-fade-up delay-300">
-          <div class="w-20 h-20 bg-agro-100 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay: 1s;">
-            <i class="ri-line-chart-line text-3xl text-agro-600"></i>
+          <div class="w-20 h-20 bg-agro-100 dark:bg-agro-900/30 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay: 1s;">
+            <i class="ri-line-chart-line text-3xl text-agro-600 dark:text-agro-400"></i>
           </div>
-          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Monitoramento</h3>
-          <p style="color: var(--text-secondary);">Acompanhamento contínuo da saúde das lavouras com sensores NDVI e IA.</p>
+          <h3 class="text-xl font-bold mb-3 text-slate-900 dark:text-white">Monitoramento</h3>
+          <p class="text-slate-600 dark:text-slate-400">Acompanhamento contínuo da saúde das lavouras com sensores NDVI e inteligência artificial.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== GALERIA - COM ÍCONES ANIMADOS ===== -->
-  <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-12" style="background: var(--bg-secondary);">
+  <!-- ===== GALERIA ===== -->
+  <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-[#141414]">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <div class="animate-fade-up">
-          <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 rounded-full text-sm font-medium">
+          <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 dark:bg-agro-900/30 dark:text-agro-400 rounded-full text-sm font-medium">
             <i class="ri-image-line"></i>Galeria
           </span>
         </div>
-        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-4 animate-fade-up delay-100" style="color: var(--text-primary);">
-          Tecnologia em <span style="color: #22c55e;">ação</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-4 animate-fade-up delay-100 text-slate-900 dark:text-white">
+          Tecnologia em <span class="text-agro-600 dark:text-agro-400">ação</span>
         </h2>
-        <p class="max-w-2xl mx-auto mt-3 animate-fade-up delay-200" style="color: var(--text-secondary);">
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mt-3 animate-fade-up delay-200">
           Conheça nossas soluções em drones agrícolas
         </p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="gallery-icon animate-fade-up delay-100">
+        <div class="gallery-item animate-fade-up delay-100">
           <i class="ri-drone-line animate-float"></i>
           <span>Drones de pulverização</span>
         </div>
-        <div class="gallery-icon animate-fade-up delay-200">
+        <div class="gallery-item animate-fade-up delay-200">
           <i class="ri-map-2-line animate-float" style="animation-delay: 0.3s;"></i>
           <span>Mapeamento aéreo</span>
         </div>
-        <div class="gallery-icon animate-fade-up delay-300">
+        <div class="gallery-item animate-fade-up delay-300">
           <i class="ri-line-chart-line animate-float" style="animation-delay: 0.6s;"></i>
           <span>Monitoramento NDVI</span>
         </div>
-        <div class="gallery-icon animate-fade-up delay-400">
+        <div class="gallery-item animate-fade-up delay-400">
           <i class="ri-cloud-line animate-float" style="animation-delay: 0.9s;"></i>
           <span>Dados em tempo real</span>
         </div>
@@ -422,79 +481,79 @@
   </section>
 
   <!-- ===== CONTATO ===== -->
-  <section id="contact" class="py-20 px-4 sm:px-6 lg:px-12" style="background: var(--bg-primary);">
+  <section id="contact" class="py-20 px-4 sm:px-6 lg:px-12 bg-white dark:bg-[#0a0a0a]">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-2 gap-12 items-start">
         <div class="space-y-6">
           <div class="animate-fade-up">
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 rounded-full text-sm font-medium">
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 dark:bg-agro-900/30 dark:text-agro-400 rounded-full text-sm font-medium">
               <i class="ri-customer-service-2-line"></i>Fale Conosco
             </span>
           </div>
-          <h2 class="font-serif text-3xl md:text-4xl font-bold animate-fade-up delay-100" style="color: var(--text-primary);">
-            Vamos transformar<br />sua <span style="color: #22c55e;">produção</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold animate-fade-up delay-100 text-slate-900 dark:text-white">
+            Vamos transformar<br />sua <span class="text-agro-600 dark:text-agro-400">produção</span>
           </h2>
-          <p class="leading-relaxed animate-fade-up delay-200" style="color: var(--text-secondary);">
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed animate-fade-up delay-200">
             Estamos prontos para ajudar você a levar mais tecnologia e eficiência para sua lavoura.
           </p>
           <div class="space-y-4 animate-fade-up delay-300">
-            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
-              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
-                <i class="ri-whatsapp-line text-agro-600 text-xl"></i>
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#2a2a2a]">
+              <div class="w-12 h-12 bg-agro-100 dark:bg-agro-900/30 rounded-full flex items-center justify-center">
+                <i class="ri-whatsapp-line text-agro-600 dark:text-agro-400 text-xl"></i>
               </div>
               <div>
-                <span style="color: var(--text-muted); font-size: 14px;">WhatsApp</span>
-                <p class="font-medium" style="color: var(--text-primary);">(43) 9 9999-9999</p>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">WhatsApp</span>
+                <p class="font-medium text-slate-900 dark:text-white">(43) 9 9999-9999</p>
               </div>
             </div>
-            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
-              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
-                <i class="ri-phone-line text-agro-600 text-xl"></i>
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#2a2a2a]">
+              <div class="w-12 h-12 bg-agro-100 dark:bg-agro-900/30 rounded-full flex items-center justify-center">
+                <i class="ri-phone-line text-agro-600 dark:text-agro-400 text-xl"></i>
               </div>
               <div>
-                <span style="color: var(--text-muted); font-size: 14px;">Telefone</span>
-                <p class="font-medium" style="color: var(--text-primary);">(43) 9999-9999</p>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">Telefone</span>
+                <p class="font-medium text-slate-900 dark:text-white">(43) 9999-9999</p>
               </div>
             </div>
-            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
-              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
-                <i class="ri-mail-line text-agro-600 text-xl"></i>
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#2a2a2a]">
+              <div class="w-12 h-12 bg-agro-100 dark:bg-agro-900/30 rounded-full flex items-center justify-center">
+                <i class="ri-mail-line text-agro-600 dark:text-agro-400 text-xl"></i>
               </div>
               <div>
-                <span style="color: var(--text-muted); font-size: 14px;">E-mail</span>
-                <p class="font-medium" style="color: var(--text-primary);">contato@primeagrotech.com</p>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">E-mail</span>
+                <p class="font-medium text-slate-900 dark:text-white">contato@primeagrotech.com</p>
               </div>
             </div>
-            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
-              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
-                <i class="ri-map-pin-line text-agro-600 text-xl"></i>
+            <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#2a2a2a]">
+              <div class="w-12 h-12 bg-agro-100 dark:bg-agro-900/30 rounded-full flex items-center justify-center">
+                <i class="ri-map-pin-line text-agro-600 dark:text-agro-400 text-xl"></i>
               </div>
               <div>
-                <span style="color: var(--text-muted); font-size: 14px;">Localização</span>
-                <p class="font-medium" style="color: var(--text-primary);">Arapoti, Paraná - Brasil</p>
+                <span class="text-slate-500 dark:text-slate-400 text-sm">Localização</span>
+                <p class="font-medium text-slate-900 dark:text-white">Arapoti, Paraná - Brasil</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="p-8 rounded-2xl animate-fade-up delay-200" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
+        <div class="p-8 rounded-2xl bg-slate-50 dark:bg-[#141414] border border-slate-200 dark:border-[#2a2a2a] animate-fade-up delay-200">
           <form class="space-y-4">
             <div>
-              <label class="block text-sm mb-2" style="color: var(--text-secondary);">Nome Completo</label>
-              <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 rounded-xl placeholder:text-sm" />
+              <label class="block text-sm mb-2 text-slate-700 dark:text-slate-300">Nome Completo</label>
+              <input type="text" placeholder="Seu nome" class="w-full" />
             </div>
             <div>
-              <label class="block text-sm mb-2" style="color: var(--text-secondary);">E-mail</label>
-              <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 rounded-xl placeholder:text-sm" />
+              <label class="block text-sm mb-2 text-slate-700 dark:text-slate-300">E-mail</label>
+              <input type="email" placeholder="seu@email.com" class="w-full" />
             </div>
             <div>
-              <label class="block text-sm mb-2" style="color: var(--text-secondary);">WhatsApp</label>
-              <input type="tel" placeholder="(43) 9 9999-9999" class="w-full px-4 py-3 rounded-xl placeholder:text-sm" />
+              <label class="block text-sm mb-2 text-slate-700 dark:text-slate-300">WhatsApp</label>
+              <input type="tel" placeholder="(43) 9 9999-9999" class="w-full" />
             </div>
             <div>
-              <label class="block text-sm mb-2" style="color: var(--text-secondary);">Mensagem</label>
-              <textarea rows="4" placeholder="Descreva sua necessidade" class="w-full px-4 py-3 rounded-xl placeholder:text-sm resize-none"></textarea>
+              <label class="block text-sm mb-2 text-slate-700 dark:text-slate-300">Mensagem</label>
+              <textarea rows="4" placeholder="Descreva sua necessidade" class="w-full resize-none"></textarea>
             </div>
-            <button type="submit" class="w-full bg-agro-600 hover:bg-agro-700 text-white font-semibold py-3 rounded-xl transition-colors">
+            <button type="submit" class="w-full bg-agro-600 hover:bg-agro-700 text-white font-semibold py-3 rounded-xl transition-colors shadow-lg shadow-agro-500/20">
               <i class="ri-send-plane-line mr-2"></i>Enviar Mensagem
             </button>
           </form>
@@ -504,25 +563,30 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer style="background: var(--bg-secondary); border-top: 1px solid var(--border-color);" class="py-8 px-4 sm:px-6 lg:px-12">
+  <footer class="py-8 px-4 sm:px-6 lg:px-12 bg-slate-50 dark:bg-[#141414] border-t border-slate-200 dark:border-[#2a2a2a]">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="flex items-center gap-3">
-        <i class="ri-drone-line text-agro-600 text-xl"></i>
-        <span class="font-serif font-bold" style="color: var(--text-primary);">PrimeAgroTech</span>
+        <i class="ri-drone-line text-agro-600 dark:text-agro-400 text-xl"></i>
+        <span class="font-serif font-bold text-slate-900 dark:text-white">PrimeAgroTech</span>
       </div>
-      <p style="color: var(--text-muted); font-size: 14px;">&copy; 2026 PrimeAgroTech. Todos os direitos reservados.</p>
+      <p class="text-slate-500 dark:text-slate-400 text-sm">
+        &copy; 2026 PrimeAgroTech. Todos os direitos reservados.
+      </p>
       <div class="flex gap-4">
-        <a href="#" style="color: var(--text-muted);" class="hover:text-agro-600 transition-colors"><i class="ri-instagram-line text-lg"></i></a>
-        <a href="#" style="color: var(--text-muted);" class="hover:text-agro-600 transition-colors"><i class="ri-facebook-circle-line text-lg"></i></a>
-        <a href="#" style="color: var(--text-muted);" class="hover:text-agro-600 transition-colors"><i class="ri-youtube-line text-lg"></i></a>
+        <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-agro-600 dark:hover:text-agro-400 transition-colors"><i class="ri-instagram-line text-lg"></i></a>
+        <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-agro-600 dark:hover:text-agro-400 transition-colors"><i class="ri-facebook-circle-line text-lg"></i></a>
+        <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-agro-600 dark:hover:text-agro-400 transition-colors"><i class="ri-youtube-line text-lg"></i></a>
+        <a href="#" class="text-slate-500 dark:text-slate-400 hover:text-agro-600 dark:hover:text-agro-400 transition-colors"><i class="ri-linkedin-box-line text-lg"></i></a>
       </div>
     </div>
   </footer>
 
   <script>
+    // ===== TEMA CLARO/ESCURO =====
     function toggleTheme() {
       document.body.classList.toggle('dark-mode');
       const isDark = document.body.classList.contains('dark-mode');
+      
       const themeIcon = document.getElementById('theme-icon');
       const themeLabel = document.getElementById('theme-label');
       const mobileThemeIcon = document.getElementById('mobile-theme-icon');
@@ -541,6 +605,7 @@
       }
     }
 
+    // ===== NAVBAR SCROLL =====
     window.addEventListener('scroll', function() {
       const navbar = document.getElementById('navbar');
       if (window.scrollY > 50) {
@@ -550,6 +615,7 @@
       }
     });
 
+    // ===== MOBILE MENU =====
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       const icon = document.getElementById('mobile-menu-icon');
@@ -558,6 +624,7 @@
       icon.classList.toggle('ri-close-line');
     }
 
+    // ===== SCROLL TO SECTION =====
     function scrollToSection(id) {
       const section = document.getElementById(id);
       if (section) {
@@ -565,14 +632,19 @@
         const top = section.getBoundingClientRect().top + window.pageYOffset - offset;
         window.scrollTo({ top, behavior: 'smooth' });
       }
+      // Fecha menu mobile se estiver aberto
       if (window.innerWidth < 768) {
-        document.getElementById('mobile-menu')?.classList.add('hidden');
+        const menu = document.getElementById('mobile-menu');
         const icon = document.getElementById('mobile-menu-icon');
-        icon.classList.remove('ri-close-line');
-        icon.classList.add('ri-menu-line');
+        if (menu && !menu.classList.contains('hidden')) {
+          menu.classList.add('hidden');
+          icon.classList.remove('ri-close-line');
+          icon.classList.add('ri-menu-line');
+        }
       }
     }
 
+    // ===== INTERSECTION OBSERVER =====
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
