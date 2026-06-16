@@ -15,12 +15,13 @@
       padding: 0;
       box-sizing: border-box;
     }
+    
+    /* Tema Claro (padrão) */
     :root {
       --verde: #1E8E3E;
       --azul: #0A66C2;
       --branco: #FFFFFF;
       --cinza-claro: #F5F7FA;
-      --cinza-escuro: #1e2a3a;
       --texto: #1e293b;
       --bg: #ffffff;
       --card-bg: #f8fafc;
@@ -31,35 +32,46 @@
       --hero-bg: linear-gradient(145deg, #f0f7f0 0%, #ffffff 80%);
       --footer-bg: #0b1f2e;
       --footer-text: #b0c4d9;
+      --input-bg: #ffffff;
+      --badge-bg: rgba(255,255,255,0.85);
+      --badge-text: #0A66C2;
     }
+    
+    /* Tema Escuro */
     [data-theme="dark"] {
-      --bg: #0f1724;
       --texto: #e2e8f0;
-      --cinza-claro: #1e293b;
-      --card-bg: #1a2538;
+      --bg: #0f1724;
+      --cinza-claro: #1a2538;
+      --card-bg: #1e2a3f;
       --sombra: 0 20px 35px -8px rgba(0,0,0,0.5);
-      --header-bg: rgba(15, 23, 36, 0.9);
+      --header-bg: rgba(15, 23, 36, 0.95);
       --border: #2d3a4f;
       --hero-bg: linear-gradient(145deg, #0f1a2a 0%, #0b1422 80%);
       --footer-bg: #080e18;
       --footer-text: #8fa3bc;
-      --branco: #e2e8f0;
+      --input-bg: #1a2538;
+      --badge-bg: rgba(15, 23, 36, 0.85);
+      --badge-text: #cbd5e1;
     }
+
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--texto);
       line-height: 1.6;
       scroll-behavior: smooth;
-      transition: background 0.3s, color 0.2s;
+      transition: background 0.3s ease, color 0.3s ease;
     }
+    
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
+    
     .container {
       max-width: 1240px;
       margin: 0 auto;
       padding: 0 24px;
     }
+    
     .btn-primary {
       background: var(--verde);
       color: #fff;
@@ -117,6 +129,7 @@
       background: #1da85c;
       transform: translateY(-3px);
     }
+    
     /* HEADER */
     header {
       background: var(--header-bg);
@@ -178,6 +191,7 @@
       transition: 0.2s;
     }
     .theme-toggle:hover { color: var(--verde); }
+    
     /* HERO */
     .hero {
       padding: 60px 0 80px;
@@ -243,23 +257,22 @@
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%23e6f0e6"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.15"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.2"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.2"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.15"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.3"/><circle cx="400" cy="160" r="16" fill="%23FFFFFF" opacity="0.7"/></svg>');
       background-size: cover;
       background-position: center;
+      transition: background-image 0.3s;
     }
     .hero-image .badge {
-      background: rgba(255,255,255,0.85);
+      background: var(--badge-bg);
       backdrop-filter: blur(4px);
       padding: 16px 28px;
       border-radius: 60px;
       font-weight: 600;
-      color: var(--azul);
+      color: var(--badge-text);
       box-shadow: var(--sombra);
+      transition: background 0.3s, color 0.3s;
     }
     [data-theme="dark"] .hero-image {
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400"><rect width="800" height="400" fill="%231a2a3a"/><circle cx="400" cy="200" r="120" fill="%231E8E3E" opacity="0.2"/><circle cx="400" cy="200" r="80" fill="%231E8E3E" opacity="0.25"/><rect x="300" y="180" width="200" height="40" rx="20" fill="%230A66C2" opacity="0.3"/><rect x="350" y="220" width="100" height="30" rx="15" fill="%230A66C2" opacity="0.25"/><path d="M320 170 L380 120 L440 120 L500 170 L480 220 L320 220 L300 170" fill="%231E8E3E" opacity="0.4"/><circle cx="400" cy="160" r="16" fill="%23ffffff" opacity="0.5"/></svg>');
     }
-    [data-theme="dark"] .hero-image .badge {
-      background: rgba(15,23,36,0.85);
-      color: #cbd5e1;
-    }
+    
     /* SEÇÕES */
     section { padding: 80px 0; }
     .section-title {
@@ -279,6 +292,7 @@
     }
     .text-center { text-align: center; }
     .mx-auto { margin-left: auto; margin-right: auto; }
+    
     /* SOBRE */
     .sobre-grid {
       display: grid;
@@ -314,8 +328,10 @@
       gap: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.02);
       border: 1px solid var(--border);
+      transition: background 0.3s, border-color 0.3s;
     }
     .valores-grid li i { color: var(--verde); }
+    
     /* SERVIÇOS */
     .servicos-grid {
       display: grid;
@@ -338,6 +354,7 @@
     }
     .servico-card h4 { font-size: 1.4rem; margin-bottom: 8px; }
     .servico-card p { opacity: 0.7; }
+    
     /* BENEFÍCIOS */
     .beneficios-grid, .diferenciais-grid {
       display: grid;
@@ -365,6 +382,7 @@
       padding: 20px 24px;
     }
     .diferencial-card i { font-size: 1.8rem; margin-bottom: 0; color: var(--verde); }
+    
     /* GALERIA */
     .galeria-grid {
       display: grid;
@@ -382,10 +400,10 @@
       color: var(--azul);
       box-shadow: var(--sombra);
       border: 1px solid var(--border);
-      transition: 0.2s;
-      background-image: linear-gradient(145deg, var(--card-bg), var(--bg));
+      transition: 0.2s, background 0.3s;
     }
     .galeria-item:hover { transform: scale(1.02); }
+    
     /* CTA */
     .cta-section {
       background: linear-gradient(135deg, #0b2b1a, #1E8E3E);
@@ -400,6 +418,7 @@
     .cta-section .btn-primary:hover { background: #e8f5e9; }
     .cta-section .btn-secondary { border-color: #fff; color: #fff; }
     .cta-section .btn-secondary:hover { background: #fff; color: var(--verde); }
+    
     /* CONTATO */
     .contato-grid {
       display: grid;
@@ -407,16 +426,25 @@
       gap: 40px;
     }
     .form-group { margin-bottom: 20px; }
-    .form-group label { font-weight: 600; display: block; margin-bottom: 6px; }
+    .form-group label { 
+      font-weight: 600; 
+      display: block; 
+      margin-bottom: 6px;
+      color: var(--texto);
+    }
     .form-group input, .form-group textarea {
       width: 100%;
       padding: 14px 18px;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: var(--card-bg);
+      background: var(--input-bg);
       color: var(--texto);
       font-family: inherit;
-      transition: 0.2s;
+      transition: 0.2s, background 0.3s, border-color 0.3s;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder {
+      color: var(--texto);
+      opacity: 0.5;
     }
     .form-group input:focus, .form-group textarea:focus {
       outline: none;
@@ -424,7 +452,34 @@
       box-shadow: 0 0 0 3px rgba(30,142,62,0.15);
     }
     .info-contato i { color: var(--verde); width: 28px; }
-    .info-contato p { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .info-contato p { 
+      margin-bottom: 12px; 
+      display: flex; 
+      align-items: center; 
+      gap: 8px;
+      color: var(--texto);
+    }
+    .info-contato {
+      background: var(--card-bg);
+      padding: 32px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .map-placeholder {
+      margin-top: 24px;
+      background: var(--bg);
+      height: 160px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--azul);
+      font-weight: 600;
+      border: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    
     /* FOOTER */
     footer {
       background: var(--footer-bg);
@@ -447,6 +502,7 @@
       text-align: center;
       font-size: 0.9rem;
     }
+    
     /* RESPONSIVO */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; }
@@ -471,8 +527,12 @@
     <div class="container header-content">
       <div class="logo">Prime<span>Agro</span>Tech</div>
       <div style="display:flex; align-items:center; gap:12px;">
-        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fas fa-moon"></i></button>
-        <button class="menu-toggle" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
       <nav id="navbar">
         <a href="#sobre">Sobre</a>
@@ -482,8 +542,12 @@
         <a href="#galeria">Galeria</a>
         <a href="#contato">Contato</a>
         <div class="nav-cta">
-          <a href="#contato" class="btn-primary" style="padding:10px 22px; font-size:0.9rem;"><i class="fas fa-file-invoice"></i> Orçamento</a>
-          <a href="#" class="btn-whatsapp" style="padding:10px 22px; font-size:0.9rem;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a href="#contato" class="btn-primary" style="padding:10px 22px; font-size:0.9rem;">
+            <i class="fas fa-file-invoice"></i> Orçamento
+          </a>
+          <a href="#" class="btn-whatsapp" style="padding:10px 22px; font-size:0.9rem;">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
         </div>
       </nav>
     </div>
@@ -518,7 +582,9 @@
       <div class="sobre-grid">
         <div>
           <h2 class="section-title">Sobre a <span>PrimeAgroTech</span></h2>
-          <p style="font-size:1.1rem; opacity:0.8; margin-bottom:24px;">A PrimeAgroTech nasceu com o propósito de levar inovação e eficiência ao agronegócio através da tecnologia de drones e soluções inteligentes para o campo.</p>
+          <p style="font-size:1.1rem; opacity:0.8; margin-bottom:24px;">
+            A PrimeAgroTech nasceu com o propósito de levar inovação e eficiência ao agronegócio através da tecnologia de drones e soluções inteligentes para o campo.
+          </p>
           <div class="sobre-card">
             <h3><i class="fas fa-bullseye" style="color:var(--verde);"></i> Missão</h3>
             <p>Transformar a gestão agrícola através de tecnologias que aumentam produtividade, reduzem custos e promovem sustentabilidade.</p>
@@ -527,8 +593,8 @@
           </div>
         </div>
         <div>
-          <div style="background:var(--card-bg); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
-            <h3 style="font-size:1.6rem; margin-bottom:20px;">Valores</h3>
+          <div style="background:var(--card-bg); border-radius:var(--radius); padding:32px; border:1px solid var(--border); transition: background 0.3s;">
+            <h3 style="font-size:1.6rem; margin-bottom:20px; color:var(--texto);">Valores</h3>
             <ul class="valores-grid">
               <li><i class="fas fa-lightbulb"></i> Inovação</li>
               <li><i class="fas fa-chart-line"></i> Compromisso com resultados</li>
@@ -629,11 +695,11 @@
           </form>
         </div>
         <div>
-          <div class="info-contato" style="background:var(--card-bg); padding:32px; border-radius:var(--radius); border:1px solid var(--border);">
+          <div class="info-contato">
             <p><i class="fab fa-whatsapp"></i> (43) 99999-9999</p>
             <p><i class="fas fa-envelope"></i> contato@primeagrotech.com.br</p>
             <p><i class="fas fa-clock"></i> Segunda a Sexta, 08h – 18h</p>
-            <div style="margin-top:24px; background:var(--bg); height:160px; border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--azul); font-weight:600; border:1px solid var(--border);">📍 Mapa integrado</div>
+            <div class="map-placeholder">📍 Mapa integrado</div>
           </div>
         </div>
       </div>
@@ -646,28 +712,4 @@
       <div class="footer-grid">
         <div><h4>PrimeAgroTech</h4><p style="margin-top:8px;">Tecnologia que transforma o campo.</p></div>
         <div><h4>Links</h4><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a></div>
-        <div><h4>Redes</h4><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-youtube"></i> YouTube</a><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
-        <div><h4>Legal</h4><a href="#">Política de Privacidade</a><a href="#">Termos de Uso</a></div>
-      </div>
-      <div class="footer-bottom">© 2026 PrimeAgroTech. Todos os direitos reservados.</div>
-    </div>
-  </footer>
-
-  <script>
-    // Toggle menu mobile
-    document.getElementById('menuToggle').addEventListener('click', function() {
-      document.getElementById('navbar').classList.toggle('open');
-    });
-
-    // Tema escuro
-    const themeToggle = document.getElementById('themeToggle');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    if (currentTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
-    themeToggle.addEventListener('click', function() {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.set
+        <div><h4>Redes</h4><a href="#"><i class="fab fa-instagram"></i> Instagram</a><a href="#"><i class="fab fa-youtube"></i> YouTube</a><a
