@@ -4,16 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PrimeAgroTech - Drones Agrícolas e Agricultura de Precisão</title>
-  <meta name="description" content="PrimeAgroTech oferece soluções inteligentes com drones agrícolas para pulverização, mapeamento aéreo, monitoramento de lavouras e agricultura de precisão. Tecnologia que eleva sua produtividade no campo." />
-  <meta name="keywords" content="drones agrícolas, agricultura de precisão, tecnologia no campo, pulverização com drones, mapeamento aéreo, monitoramento de lavouras, Arapoti, Paraná, agronegócio sul do Brasil" />
-  <meta name="geo.region" content="BR-PR" />
-  <meta name="geo.placename" content="Arapoti, Paraná, Brasil" />
-  <meta property="og:title" content="PrimeAgroTech - Drones Agrícolas e Agricultura de Precisão" />
-  <meta property="og:description" content="Soluções inteligentes com drones agrícolas para elevar sua produtividade no campo. Baseada em Arapoti, PR, atuando no agronegócio do sul do Brasil." />
+  <meta name="description" content="PrimeAgroTech oferece soluções inteligentes com drones agrícolas para pulverização, mapeamento aéreo, monitoramento de lavouras e agricultura de precisão." />
+  <meta name="keywords" content="drones agrícolas, agricultura de precisão, tecnologia no campo, pulverização com drones, Arapoti, Paraná" />
   <link rel="canonical" href="/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -22,25 +18,9 @@
         extend: {
           colors: {
             'agro': {
-              DEFAULT: '#2ecc71',
-              light: '#55efc4',
-              dark: '#27ae60',
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              200: '#bbf7d0',
-              300: '#86efac',
-              400: '#4ade80',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
-              800: '#166534',
-              900: '#14532d',
-            },
-            'dark': {
-              DEFAULT: '#0a0a0a',
-              card: '#141414',
-              border: '#2a2a2a',
-              text: '#e5e5e5',
+              50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac',
+              400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d',
+              800: '#166534', 900: '#14532d',
             }
           },
           fontFamily: {
@@ -54,59 +34,93 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { background: #0a0a0a; color: #e5e5e5; }
     
-    /* Animações melhoradas */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    /* TEMA CLARO (padrão) */
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --bg-card: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
+    
+    /* TEMA ESCURO */
+    body.dark-mode {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #141414;
+      --bg-card: #1a1a1a;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #64748b;
+      --border-color: #2a2a2a;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+      --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.4);
+    }
+    
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    
+    /* Navbar */
+    .navbar-scrolled {
+      background: var(--bg-primary) !important;
+      backdrop-filter: blur(16px) !important;
+      border-bottom: 1px solid var(--border-color) !important;
+      box-shadow: var(--shadow);
+    }
+    
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      border-radius: 16px;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    
+    /* Botão toggle tema */
+    .theme-toggle {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 8px 16px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .theme-toggle:hover {
+      background: var(--border-color);
+    }
+    
+    /* Animações */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(2deg); }
-    }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(46, 204, 113, 0.2); }
-      50% { box-shadow: 0 0 40px rgba(46, 204, 113, 0.4); }
-    }
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-60px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(60px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
     
     .animate-fade-up {
       opacity: 0;
-      animation: fadeUp 0.8s ease forwards;
-    }
-    .animate-fade-in {
-      opacity: 0;
-      animation: fadeIn 0.6s ease forwards;
+      animation: fadeUp 0.6s ease forwards;
     }
     .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
-    .animate-pulse-glow {
-      animation: pulseGlow 3s ease-in-out infinite;
-    }
-    .animate-slide-left {
-      opacity: 0;
-      animation: slideInLeft 0.8s ease forwards;
-    }
-    .animate-slide-right {
-      opacity: 0;
-      animation: slideInRight 0.8s ease forwards;
+      animation: float 4s ease-in-out infinite;
     }
     
     .delay-100 { animation-delay: 0.1s; }
@@ -115,108 +129,89 @@
     .delay-400 { animation-delay: 0.4s; }
     .delay-500 { animation-delay: 0.5s; }
     
-    /* Navbar */
-    .navbar-scrolled {
-      background: rgba(10, 10, 10, 0.95) !important;
-      backdrop-filter: blur(16px) !important;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    /* Imagens */
+    .gallery-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+    .gallery-img:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-hover);
     }
     
-    /* Cards com efeito glassmorphism */
-    .glass-card {
-      background: rgba(20, 20, 20, 0.8);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .glass-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      border-color: rgba(46, 204, 113, 0.3);
-      box-shadow: 0 20px 60px rgba(46, 204, 113, 0.1);
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     
-    /* Gradiente animado para textos */
-    .gradient-text {
-      background: linear-gradient(135deg, #2ecc71, #55efc4, #2ecc71);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shimmer 3s linear infinite;
-    }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+    ::-webkit-scrollbar-thumb { background: #22c55e; border-radius: 10px; }
     
-    /* Scrollbar personalizada */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0a0a0a; }
-    ::-webkit-scrollbar-thumb { background: #2ecc71; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: #27ae60; }
-    
-    /* Botão com efeito neon */
-    .btn-neon {
-      position: relative;
-      overflow: hidden;
+    /* Inputs */
+    input, textarea {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
       transition: all 0.3s ease;
     }
-    .btn-neon::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(45deg, #2ecc71, #55efc4, #2ecc71);
-      background-size: 300% 300%;
-      border-radius: inherit;
-      z-index: -1;
-      animation: shimmer 3s linear infinite;
-      filter: blur(8px);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
     }
-    .btn-neon:hover::before {
-      opacity: 0.6;
-    }
-    
-    /* Imagens com efeito de brilho */
-    .image-glow {
-      transition: all 0.5s ease;
-    }
-    .image-glow:hover {
-      filter: brightness(1.1) contrast(1.05);
-      transform: scale(1.02);
+    input::placeholder, textarea::placeholder {
+      color: var(--text-muted);
     }
   </style>
 </head>
 <body>
 
   <!-- ===== NAVBAR ===== -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
     <div class="w-full px-4 sm:px-6 lg:px-12">
       <div class="flex items-center justify-between h-16 md:h-20">
         <div class="hidden md:flex items-center space-x-8">
-          <button onclick="scrollToSection('hero')" class="text-sm font-medium tracking-wide text-white/60 hover:text-agro-400 transition-colors cursor-pointer">Home</button>
-          <button onclick="scrollToSection('about')" class="text-sm font-medium tracking-wide text-white/60 hover:text-agro-400 transition-colors cursor-pointer">Sobre</button>
-          <button onclick="scrollToSection('services')" class="text-sm font-medium tracking-wide text-white/60 hover:text-agro-400 transition-colors cursor-pointer">Serviços</button>
+          <button onclick="scrollToSection('hero')" class="text-sm font-medium tracking-wide hover:text-agro-600 transition-colors" style="color: var(--text-secondary);">Home</button>
+          <button onclick="scrollToSection('about')" class="text-sm font-medium tracking-wide hover:text-agro-600 transition-colors" style="color: var(--text-secondary);">Sobre</button>
+          <button onclick="scrollToSection('services')" class="text-sm font-medium tracking-wide hover:text-agro-600 transition-colors" style="color: var(--text-secondary);">Serviços</button>
         </div>
         <button onclick="scrollToSection('hero')" class="flex items-center gap-2 cursor-pointer">
-          <i class="ri-drone-line text-xl md:text-2xl text-agro-400"></i>
-          <span class="font-serif text-lg md:text-xl font-bold tracking-wide text-white">PrimeAgroTech</span>
+          <i class="ri-drone-line text-xl md:text-2xl text-agro-600"></i>
+          <span class="font-serif text-lg md:text-xl font-bold tracking-wide" style="color: var(--text-primary);">PrimeAgroTech</span>
         </button>
-        <div class="hidden md:flex items-center space-x-8">
-          <button onclick="scrollToSection('gallery')" class="text-sm font-medium tracking-wide text-white/60 hover:text-agro-400 transition-colors cursor-pointer">Galeria</button>
-          <button onclick="scrollToSection('contact')" class="btn-neon px-6 py-2.5 rounded-full text-sm font-semibold bg-agro-500 text-black hover:bg-agro-400 transition-all cursor-pointer relative z-10">
+        <div class="hidden md:flex items-center space-x-6">
+          <button onclick="scrollToSection('gallery')" class="text-sm font-medium tracking-wide hover:text-agro-600 transition-colors" style="color: var(--text-secondary);">Galeria</button>
+          <button onclick="toggleTheme()" class="theme-toggle">
+            <i id="theme-icon" class="ri-moon-line"></i>
+            <span id="theme-label">Escuro</span>
+          </button>
+          <button onclick="scrollToSection('contact')" class="px-6 py-2.5 rounded-full text-sm font-semibold bg-agro-600 text-white hover:bg-agro-700 transition-all cursor-pointer">
             Solicitar Orçamento
           </button>
         </div>
-        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg cursor-pointer text-white/60 hover:text-white transition-colors">
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg cursor-pointer" style="color: var(--text-primary);">
           <i id="mobile-menu-icon" class="ri-menu-line text-2xl"></i>
         </button>
       </div>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-dark-card/95 backdrop-blur-xl border-b border-dark-border">
+    <div id="mobile-menu" class="md:hidden hidden" style="background: var(--bg-primary); border-top: 1px solid var(--border-color);">
       <div class="px-4 py-4 space-y-3">
-        <button onclick="scrollToSection('hero');toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-white/60 hover:text-agro-400 hover:bg-white/5 rounded-lg transition-colors text-sm font-medium cursor-pointer">Home</button>
-        <button onclick="scrollToSection('about');toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-white/60 hover:text-agro-400 hover:bg-white/5 rounded-lg transition-colors text-sm font-medium cursor-pointer">Sobre</button>
-        <button onclick="scrollToSection('services');toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-white/60 hover:text-agro-400 hover:bg-white/5 rounded-lg transition-colors text-sm font-medium cursor-pointer">Serviços</button>
-        <button onclick="scrollToSection('gallery');toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-white/60 hover:text-agro-400 hover:bg-white/5 rounded-lg transition-colors text-sm font-medium cursor-pointer">Galeria</button>
-        <button onclick="scrollToSection('contact');toggleMobileMenu()" class="block w-full text-left px-3 py-2 text-white/60 hover:text-agro-400 hover:bg-white/5 rounded-lg transition-colors text-sm font-medium cursor-pointer">Contato</button>
+        <button onclick="scrollToSection('hero');toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary); hover:background: var(--bg-secondary);">Home</button>
+        <button onclick="scrollToSection('about');toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary);">Sobre</button>
+        <button onclick="scrollToSection('services');toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary);">Serviços</button>
+        <button onclick="scrollToSection('gallery');toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary);">Galeria</button>
+        <button onclick="toggleTheme();toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-lg transition-colors text-sm font-medium" style="color: var(--text-secondary);">
+          <i id="mobile-theme-icon" class="ri-moon-line mr-2"></i>
+          <span id="mobile-theme-label">Modo Escuro</span>
+        </button>
+        <button onclick="scrollToSection('contact');toggleMobileMenu()" class="block w-full text-left px-3 py-2 bg-agro-600 text-white rounded-lg text-sm font-medium">Contato</button>
       </div>
     </div>
   </nav>
@@ -224,49 +219,49 @@
   <!-- ===== HERO SECTION ===== -->
   <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0">
-      <img src="https://images.unsplash.com/photo-1574943320219-553eb1ea3e63?w=1920&q=80" alt="Drone agrícola sobrevoando plantação" class="w-full h-full object-cover" loading="lazy" />
-      <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"></div>
+      <img src="https://images.unsplash.com/photo-1574943320219-553eb1ea3e63?w=1920&q=80" alt="Drone agrícola" class="hero-img" />
+      <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));"></div>
     </div>
     <div class="relative z-10 w-full px-4 sm:px-6 lg:px-12 pt-24 pb-16">
       <div class="max-w-6xl">
         <div class="animate-fade-up">
-          <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-agro-400 text-sm font-medium border border-white/10">
+          <span class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm font-medium border border-white/20">
             <i class="ri-drone-line"></i>Tecnologia Avançada para o Agro
           </span>
         </div>
         <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-tight mt-6 mb-8 animate-fade-up delay-200">
           Tecnologia que eleva<br />sua produtividade<br />
-          <span class="gradient-text">no campo</span>
+          <span style="color: #4ade80;">no campo</span>
         </h1>
         <div class="flex flex-col sm:flex-row gap-6 animate-fade-up delay-300">
-          <button onclick="scrollToSection('contact')" class="btn-neon group inline-flex items-center gap-3 bg-agro-500 text-black px-8 py-4 rounded-full font-semibold text-base hover:bg-agro-400 transition-all cursor-pointer relative z-10">
+          <button onclick="scrollToSection('contact')" class="group inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full font-semibold text-base hover:bg-agro-50 transition-all cursor-pointer">
             Solicitar Orçamento
-            <span class="w-8 h-8 bg-black/20 rounded-full flex items-center justify-center group-hover:bg-black/30 transition-colors">
-              <i class="ri-arrow-right-line text-black text-sm"></i>
+            <span class="w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center group-hover:bg-agro-600 transition-colors">
+              <i class="ri-arrow-right-line text-white text-sm"></i>
             </span>
           </button>
-          <button onclick="scrollToSection('services')" class="inline-flex items-center gap-3 text-white border border-white/20 px-8 py-4 rounded-full font-medium text-base hover:bg-white/5 transition-all cursor-pointer">
-            <i class="ri-play-circle-line text-xl text-agro-400"></i>Conhecer Serviços
+          <button onclick="scrollToSection('services')" class="inline-flex items-center gap-3 text-white border border-white/40 px-8 py-4 rounded-full font-medium text-base hover:bg-white/10 transition-all cursor-pointer">
+            <i class="ri-play-circle-line text-xl"></i>Conhecer Serviços
           </button>
         </div>
         <div class="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl animate-fade-up delay-400">
-          <div class="glass-card rounded-2xl p-6">
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/15">
             <div class="flex items-center gap-3 mb-3">
               <div class="w-10 h-10 rounded-full bg-agro-500/20 flex items-center justify-center">
                 <i class="ri-plant-line text-agro-400 text-lg"></i>
               </div>
               <span class="text-white font-semibold text-lg">200+ hectares</span>
             </div>
-            <p class="text-white/60 text-sm leading-relaxed">Hectares monitorados com nossos drones em todo o sul do Brasil</p>
+            <p class="text-white/70 text-sm leading-relaxed">Hectares monitorados com nossos drones</p>
           </div>
-          <div class="glass-card rounded-2xl p-6">
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/15">
             <div class="flex items-center gap-3 mb-3">
               <div class="w-10 h-10 rounded-full bg-agro-500/20 flex items-center justify-center">
                 <i class="ri-user-line text-agro-400 text-lg"></i>
               </div>
               <span class="text-white font-semibold text-lg">8 clientes</span>
             </div>
-            <p class="text-white/60 text-sm leading-relaxed">Produtores rurais que já confiam na nossa tecnologia</p>
+            <p class="text-white/70 text-sm leading-relaxed">Produtores que confiam na nossa tecnologia</p>
           </div>
         </div>
       </div>
@@ -274,47 +269,47 @@
   </section>
 
   <!-- ===== SOBRE SECTION ===== -->
-  <section id="about" class="py-20 px-4 sm:px-6 lg:px-12 bg-dark">
+  <section id="about" class="py-20 px-4 sm:px-6 lg:px-12" style="background: var(--bg-secondary);">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="space-y-6">
           <div class="animate-fade-up">
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-500/10 text-agro-400 rounded-full text-sm font-medium border border-agro-500/20">
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 rounded-full text-sm font-medium">
               <i class="ri-information-line"></i>Sobre Nós
             </span>
           </div>
-          <h2 class="font-serif text-3xl md:text-4xl font-bold text-white animate-fade-up delay-100">
-            Inovação e tecnologia<br />para o <span class="gradient-text">agronegócio</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold animate-fade-up delay-100" style="color: var(--text-primary);">
+            Inovação e tecnologia<br />para o <span style="color: #22c55e;">agronegócio</span>
           </h2>
-          <p class="text-white/70 leading-relaxed animate-fade-up delay-200">
-            A <strong class="text-white">PrimeAgroTech</strong> é uma empresa especializada em soluções com drones agrícolas, sediada em <strong class="text-white">Arapoti, Paraná</strong>. 
-            Nossa missão é levar tecnologia de ponta para o campo, otimizando processos e aumentando a produtividade dos nossos clientes.
+          <p class="leading-relaxed animate-fade-up delay-200" style="color: var(--text-secondary);">
+            A <strong style="color: var(--text-primary);">PrimeAgroTech</strong> é uma empresa especializada em soluções com drones agrícolas, sediada em <strong style="color: var(--text-primary);">Arapoti, Paraná</strong>. 
+            Nossa missão é levar tecnologia de ponta para o campo, otimizando processos e aumentando a produtividade.
           </p>
           <div class="space-y-3 animate-fade-up delay-300">
             <div class="flex items-start gap-3">
-              <i class="ri-checkbox-circle-fill text-agro-400 text-xl mt-0.5"></i>
-              <span class="text-white/70">Equipe especializada em agricultura de precisão</span>
+              <i class="ri-checkbox-circle-fill text-agro-600 text-xl mt-0.5"></i>
+              <span style="color: var(--text-secondary);">Equipe especializada em agricultura de precisão</span>
             </div>
             <div class="flex items-start gap-3">
-              <i class="ri-checkbox-circle-fill text-agro-400 text-xl mt-0.5"></i>
-              <span class="text-white/70">Tecnologia homologada e certificada</span>
+              <i class="ri-checkbox-circle-fill text-agro-600 text-xl mt-0.5"></i>
+              <span style="color: var(--text-secondary);">Tecnologia homologada e certificada</span>
             </div>
             <div class="flex items-start gap-3">
-              <i class="ri-checkbox-circle-fill text-agro-400 text-xl mt-0.5"></i>
-              <span class="text-white/70">Atendimento personalizado para cada lavoura</span>
+              <i class="ri-checkbox-circle-fill text-agro-600 text-xl mt-0.5"></i>
+              <span style="color: var(--text-secondary);">Atendimento personalizado para cada lavoura</span>
             </div>
           </div>
         </div>
         <div class="relative animate-fade-up delay-200">
-          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80" alt="Tecnologia no campo" class="rounded-2xl shadow-2xl w-full h-auto image-glow" loading="lazy" />
-          <div class="absolute -bottom-6 -right-6 glass-card rounded-xl p-4 animate-float">
+          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80" alt="Tecnologia no campo" class="rounded-2xl shadow-xl w-full h-auto" />
+          <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg border" style="border-color: var(--border-color);">
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 bg-agro-500/20 rounded-full flex items-center justify-center">
-                <i class="ri-drone-line text-agro-400 text-2xl"></i>
+              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
+                <i class="ri-drone-line text-agro-600 text-2xl"></i>
               </div>
               <div>
-                <span class="text-xs text-white/50">Tecnologia</span>
-                <p class="font-semibold text-white">100% nacional</p>
+                <span style="color: var(--text-muted); font-size: 12px;">Tecnologia</span>
+                <p class="font-semibold" style="color: var(--text-primary);">100% nacional</p>
               </div>
             </div>
           </div>
@@ -324,152 +319,158 @@
   </section>
 
   <!-- ===== SERVIÇOS SECTION ===== -->
-  <section id="services" class="py-20 px-4 sm:px-6 lg:px-12 bg-dark-card">
+  <section id="services" class="py-20 px-4 sm:px-6 lg:px-12" style="background: var(--bg-primary);">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <div class="animate-fade-up">
-          <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-500/10 text-agro-400 rounded-full text-sm font-medium border border-agro-500/20">
+          <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 rounded-full text-sm font-medium">
             <i class="ri-service-line"></i>Nossos Serviços
           </span>
         </div>
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mt-4 animate-fade-up delay-100">
-          Soluções completas em <span class="gradient-text">drones agrícolas</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-4 animate-fade-up delay-100" style="color: var(--text-primary);">
+          Soluções completas em <span style="color: #22c55e;">drones agrícolas</span>
         </h2>
-        <p class="text-white/60 max-w-2xl mx-auto mt-3 animate-fade-up delay-200">
+        <p class="max-w-2xl mx-auto mt-3 animate-fade-up delay-200" style="color: var(--text-secondary);">
           Oferecemos serviços especializados para atender todas as necessidades da sua lavoura
         </p>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="glass-card rounded-2xl p-8 text-center hover:border-agro-500/30 animate-fade-up delay-100">
-          <div class="w-20 h-20 bg-agro-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-agro-500/20 transition-colors">
-            <i class="ri-drone-line text-3xl text-agro-400"></i>
+        <div class="card p-8 text-center animate-fade-up delay-100">
+          <div class="w-20 h-20 bg-agro-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="ri-drone-line text-3xl text-agro-600"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Pulverização</h3>
-          <p class="text-white/60 leading-relaxed">
-            Aplicação precisa de defensivos agrícolas com drones, reduzindo custos e aumentando a eficiência.
-          </p>
+          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Pulverização</h3>
+          <p style="color: var(--text-secondary);">Aplicação precisa de defensivos agrícolas com drones, reduzindo custos e aumentando a eficiência.</p>
         </div>
-        <div class="glass-card rounded-2xl p-8 text-center hover:border-agro-500/30 animate-fade-up delay-200">
-          <div class="w-20 h-20 bg-agro-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <i class="ri-map-2-line text-3xl text-agro-400"></i>
+        <div class="card p-8 text-center animate-fade-up delay-200">
+          <div class="w-20 h-20 bg-agro-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="ri-map-2-line text-3xl text-agro-600"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Mapeamento Aéreo</h3>
-          <p class="text-white/60 leading-relaxed">
-            Mapeamento detalhado com imagens de alta resolução para análises precisas da sua lavoura.
-          </p>
+          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Mapeamento Aéreo</h3>
+          <p style="color: var(--text-secondary);">Mapeamento detalhado com imagens de alta resolução para análises precisas da sua lavoura.</p>
         </div>
-        <div class="glass-card rounded-2xl p-8 text-center hover:border-agro-500/30 animate-fade-up delay-300">
-          <div class="w-20 h-20 bg-agro-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <i class="ri-line-chart-line text-3xl text-agro-400"></i>
+        <div class="card p-8 text-center animate-fade-up delay-300">
+          <div class="w-20 h-20 bg-agro-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="ri-line-chart-line text-3xl text-agro-600"></i>
           </div>
-          <h3 class="text-xl font-bold text-white mb-3">Monitoramento</h3>
-          <p class="text-white/60 leading-relaxed">
-            Acompanhamento contínuo da saúde das lavouras com sensores NDVI e inteligência artificial.
-          </p>
+          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Monitoramento</h3>
+          <p style="color: var(--text-secondary);">Acompanhamento contínuo da saúde das lavouras com sensores NDVI e inteligência artificial.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== GALERIA SECTION ===== -->
-  <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-12 bg-dark">
+  <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-12" style="background: var(--bg-secondary);">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-12">
         <div class="animate-fade-up">
-          <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-500/10 text-agro-400 rounded-full text-sm font-medium border border-agro-500/20">
+          <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 rounded-full text-sm font-medium">
             <i class="ri-image-line"></i>Galeria
           </span>
         </div>
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mt-4 animate-fade-up delay-100">
-          Tecnologia em <span class="gradient-text">ação</span>
+        <h2 class="font-serif text-3xl md:text-4xl font-bold mt-4 animate-fade-up delay-100" style="color: var(--text-primary);">
+          Tecnologia em <span style="color: #22c55e;">ação</span>
         </h2>
-        <p class="text-white/60 max-w-2xl mx-auto mt-3 animate-fade-up delay-200">
+        <p class="max-w-2xl mx-auto mt-3 animate-fade-up delay-200" style="color: var(--text-secondary);">
           Veja nossos drones e equipamentos trabalhando no campo
         </p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="https://images.unsplash.com/photo-1574943320219-553eb1ea3e63?w=400&q=80" alt="Drone agrícola" class="rounded-xl w-full h-48 object-cover image-glow cursor-pointer animate-fade-up delay-100" loading="lazy" />
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" alt="Campo verde" class="rounded-xl w-full h-48 object-cover image-glow cursor-pointer animate-fade-up delay-200" loading="lazy" />
-        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&q=80" alt="Tecnologia agrícola" class="rounded-xl w-full h-48 object-cover image-glow cursor-pointer animate-fade-up delay-300" loading="lazy" />
-        <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?w=400&q=80" alt="Campo de soja" class="rounded-xl w-full h-48 object-cover image-glow cursor-pointer animate-fade-up delay-400" loading="lazy" />
+        <div class="animate-fade-up delay-100">
+          <img src="https://images.unsplash.com/photo-1574943320219-553eb1ea3e63?w=400&q=80" alt="Drone agrícola voando" class="gallery-img" />
+          <p class="text-center mt-2 text-sm font-medium" style="color: var(--text-secondary);">Drone em ação</p>
+        </div>
+        <div class="animate-fade-up delay-200">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" alt="Plantação verde" class="gallery-img" />
+          <p class="text-center mt-2 text-sm font-medium" style="color: var(--text-secondary);">Lavoura monitorada</p>
+        </div>
+        <div class="animate-fade-up delay-300">
+          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&q=80" alt="Tecnologia no campo" class="gallery-img" />
+          <p class="text-center mt-2 text-sm font-medium" style="color: var(--text-secondary);">Tecnologia aplicada</p>
+        </div>
+        <div class="animate-fade-up delay-400">
+          <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?w=400&q=80" alt="Campo de soja" class="gallery-img" />
+          <p class="text-center mt-2 text-sm font-medium" style="color: var(--text-secondary);">Campo produtivo</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== CONTATO SECTION (simplificado, sem "Entre em Contato") ===== -->
-  <section id="contact" class="py-20 px-4 sm:px-6 lg:px-12 bg-dark-card">
+  <!-- ===== CONTATO SECTION ===== -->
+  <section id="contact" class="py-20 px-4 sm:px-6 lg:px-12" style="background: var(--bg-primary);">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-2 gap-12 items-start">
         <div class="space-y-6">
           <div class="animate-fade-up">
-            <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-500/10 text-agro-400 rounded-full text-sm font-medium border border-agro-500/20">
+            <span class="inline-flex items-center gap-2 px-4 py-2 bg-agro-100 text-agro-700 rounded-full text-sm font-medium">
               <i class="ri-customer-service-2-line"></i>Fale Conosco
             </span>
           </div>
-          <h2 class="font-serif text-3xl md:text-4xl font-bold text-white animate-fade-up delay-100">
-            Vamos transformar<br />sua <span class="gradient-text">produção</span>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold animate-fade-up delay-100" style="color: var(--text-primary);">
+            Vamos transformar<br />sua <span style="color: #22c55e;">produção</span>
           </h2>
-          <p class="text-white/70 leading-relaxed animate-fade-up delay-200">
+          <p class="leading-relaxed animate-fade-up delay-200" style="color: var(--text-secondary);">
             Estamos prontos para ajudar você a levar mais tecnologia e eficiência para sua lavoura.
           </p>
           <div class="space-y-4 animate-fade-up delay-300">
-            <div class="flex items-center gap-4 glass-card rounded-xl p-4">
-              <div class="w-12 h-12 bg-agro-500/10 rounded-full flex items-center justify-center">
-                <i class="ri-whatsapp-line text-agro-400 text-xl"></i>
+            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
+              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
+                <i class="ri-whatsapp-line text-agro-600 text-xl"></i>
               </div>
               <div>
-                <span class="text-white/50 text-sm">WhatsApp</span>
-                <p class="text-white font-medium">(43) 9 9999-9999</p>
+                <span style="color: var(--text-muted); font-size: 14px;">WhatsApp</span>
+                <p class="font-medium" style="color: var(--text-primary);">(43) 9 9999-9999</p>
               </div>
             </div>
-            <div class="flex items-center gap-4 glass-card rounded-xl p-4">
-              <div class="w-12 h-12 bg-agro-500/10 rounded-full flex items-center justify-center">
-                <i class="ri-phone-line text-agro-400 text-xl"></i>
+            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
+              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
+                <i class="ri-phone-line text-agro-600 text-xl"></i>
               </div>
               <div>
-                <span class="text-white/50 text-sm">Telefone</span>
-                <p class="text-white font-medium">(43) 9999-9999</p>
+                <span style="color: var(--text-muted); font-size: 14px;">Telefone</span>
+                <p class="font-medium" style="color: var(--text-primary);">(43) 9999-9999</p>
               </div>
             </div>
-            <div class="flex items-center gap-4 glass-card rounded-xl p-4">
-              <div class="w-12 h-12 bg-agro-500/10 rounded-full flex items-center justify-center">
-                <i class="ri-mail-line text-agro-400 text-xl"></i>
+            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
+              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
+                <i class="ri-mail-line text-agro-600 text-xl"></i>
               </div>
               <div>
-                <span class="text-white/50 text-sm">E-mail</span>
-                <p class="text-white font-medium">contato@primeagrotech.com</p>
+                <span style="color: var(--text-muted); font-size: 14px;">E-mail</span>
+                <p class="font-medium" style="color: var(--text-primary);">contato@primeagrotech.com</p>
               </div>
             </div>
-            <div class="flex items-center gap-4 glass-card rounded-xl p-4">
-              <div class="w-12 h-12 bg-agro-500/10 rounded-full flex items-center justify-center">
-                <i class="ri-map-pin-line text-agro-400 text-xl"></i>
+            <div class="flex items-center gap-4 p-4 rounded-xl" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
+              <div class="w-12 h-12 bg-agro-100 rounded-full flex items-center justify-center">
+                <i class="ri-map-pin-line text-agro-600 text-xl"></i>
               </div>
               <div>
-                <span class="text-white/50 text-sm">Localização</span>
-                <p class="text-white font-medium">Arapoti, Paraná - Brasil</p>
+                <span style="color: var(--text-muted); font-size: 14px;">Localização</span>
+                <p class="font-medium" style="color: var(--text-primary);">Arapoti, Paraná - Brasil</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="glass-card rounded-2xl p-8 animate-fade-up delay-200">
+        <div class="p-8 rounded-2xl animate-fade-up delay-200" style="background: var(--bg-secondary); border: 1px solid var(--border-color);">
           <form class="space-y-4">
             <div>
-              <label class="block text-sm text-white/60 mb-2">Nome Completo</label>
-              <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-agro-400 transition-colors" />
+              <label class="block text-sm mb-2" style="color: var(--text-secondary);">Nome Completo</label>
+              <input type="text" placeholder="Seu nome" class="w-full px-4 py-3 rounded-xl placeholder:text-sm" />
             </div>
             <div>
-              <label class="block text-sm text-white/60 mb-2">E-mail</label>
-              <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-agro-400 transition-colors" />
+              <label class="block text-sm mb-2" style="color: var(--text-secondary);">E-mail</label>
+              <input type="email" placeholder="seu@email.com" class="w-full px-4 py-3 rounded-xl placeholder:text-sm" />
             </div>
             <div>
-              <label class="block text-sm text-white/60 mb-2">WhatsApp</label>
-              <input type="tel" placeholder="(43) 9 9999-9999" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-agro-400 transition-colors" />
+              <label class="block text-sm mb-2" style="color: var(--text-secondary);">WhatsApp</label>
+              <input type="tel" placeholder="(43) 9 9999-9999" class="w-full px-4 py-3 rounded-xl placeholder:text-sm" />
             </div>
             <div>
-              <label class="block text-sm text-white/60 mb-2">Mensagem</label>
-              <textarea rows="4" placeholder="Descreva sua necessidade" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/30 focus:outline-none focus:border-agro-400 transition-colors resize-none"></textarea>
+              <label class="block text-sm mb-2" style="color: var(--text-secondary);">Mensagem</label>
+              <textarea rows="4" placeholder="Descreva sua necessidade" class="w-full px-4 py-3 rounded-xl placeholder:text-sm resize-none"></textarea>
             </div>
-            <button type="submit" class="btn-neon w-full bg-agro-500 hover:bg-agro-400 text-black font-semibold py-3 rounded-xl transition-all cursor-pointer relative z-10">
+            <button type="submit" class="w-full bg-agro-600 hover:bg-agro-700 text-white font-semibold py-3 rounded-xl transition-colors">
               <i class="ri-send-plane-line mr-2"></i>Enviar Mensagem
             </button>
           </form>
@@ -479,26 +480,49 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="bg-dark border-t border-dark-border py-8 px-4 sm:px-6 lg:px-12">
+  <footer style="background: var(--bg-secondary); border-top: 1px solid var(--border-color);" class="py-8 px-4 sm:px-6 lg:px-12">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="flex items-center gap-3">
-        <i class="ri-drone-line text-agro-400 text-xl"></i>
-        <span class="font-serif text-white font-bold">PrimeAgroTech</span>
+        <i class="ri-drone-line text-agro-600 text-xl"></i>
+        <span class="font-serif font-bold" style="color: var(--text-primary);">PrimeAgroTech</span>
       </div>
-      <p class="text-sm text-white/40 text-center">
+      <p style="color: var(--text-muted); font-size: 14px;">
         &copy; 2026 PrimeAgroTech. Todos os direitos reservados.
       </p>
       <div class="flex gap-4">
-        <a href="#" class="text-white/40 hover:text-agro-400 transition-colors"><i class="ri-instagram-line text-lg"></i></a>
-        <a href="#" class="text-white/40 hover:text-agro-400 transition-colors"><i class="ri-facebook-circle-line text-lg"></i></a>
-        <a href="#" class="text-white/40 hover:text-agro-400 transition-colors"><i class="ri-youtube-line text-lg"></i></a>
-        <a href="#" class="text-white/40 hover:text-agro-400 transition-colors"><i class="ri-linkedin-box-line text-lg"></i></a>
+        <a href="#" style="color: var(--text-muted);" class="hover:text-agro-600 transition-colors"><i class="ri-instagram-line text-lg"></i></a>
+        <a href="#" style="color: var(--text-muted);" class="hover:text-agro-600 transition-colors"><i class="ri-facebook-circle-line text-lg"></i></a>
+        <a href="#" style="color: var(--text-muted);" class="hover:text-agro-600 transition-colors"><i class="ri-youtube-line text-lg"></i></a>
       </div>
     </div>
   </footer>
 
   <script>
-    // ===== NAVBAR SCROLL EFFECT =====
+    // ===== TEMA CLARO/ESCURO =====
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      
+      // Atualiza ícones e textos
+      const themeIcon = document.getElementById('theme-icon');
+      const themeLabel = document.getElementById('theme-label');
+      const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+      const mobileThemeLabel = document.getElementById('mobile-theme-label');
+      
+      if (isDark) {
+        themeIcon.className = 'ri-sun-line';
+        themeLabel.textContent = 'Claro';
+        mobileThemeIcon.className = 'ri-sun-line';
+        mobileThemeLabel.textContent = 'Modo Claro';
+      } else {
+        themeIcon.className = 'ri-moon-line';
+        themeLabel.textContent = 'Escuro';
+        mobileThemeIcon.className = 'ri-moon-line';
+        mobileThemeLabel.textContent = 'Modo Escuro';
+      }
+    }
+
+    // ===== NAVBAR SCROLL =====
     window.addEventListener('scroll', function() {
       const navbar = document.getElementById('navbar');
       if (window.scrollY > 50) {
@@ -533,7 +557,7 @@
       }
     }
 
-    // ===== INTERSECTION OBSERVER PARA ANIMAÇÕES =====
+    // ===== INTERSECTION OBSERVER =====
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -546,7 +570,7 @@
         rootMargin: '0px 0px -50px 0px'
       });
 
-      document.querySelectorAll('.animate-fade-up, .animate-fade-in, .animate-slide-left, .animate-slide-right').forEach(el => {
+      document.querySelectorAll('.animate-fade-up').forEach(el => {
         observer.observe(el);
       });
     });
